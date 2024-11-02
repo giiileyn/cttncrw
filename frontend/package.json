@@ -8,12 +8,25 @@
   "license": "ISC",
   "keywords": [],
   "dependencies": {
+    "axios": "^1.7.7",
+    "countries-list": "^3.1.1",
+    "mdbreact": "^5.2.0",
+    "rc-slider": "^11.1.7",
     "react": "^18.3.1",
+    "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1"
+    "react-helmet": "^6.1.0",
+    "react-js-pagination": "^3.0.3",
+    "react-router-dom": "^6.27.0",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.6",
+    "recharts": "^2.13.3",
+    "sweetalert2": "^11.14.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
     "eslint": "^9.14.0",
     "eslint-plugin-react": "^7.37.2",
