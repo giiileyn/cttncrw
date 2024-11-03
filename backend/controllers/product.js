@@ -1,20 +1,23 @@
 const Product = require('../models/product'); 
+const APIFeatures = require('../utils/apiFeature');
 
 // Get All Products
-exports.getProducts = async (req, res, next) => {
+exports.getProducts = async (req, res) => {
     try {
-        const products = await Product.find();
-        console.log("Retrieved products:", products);
-
-        if (!products || products.length === 0) {
-            return res.status(404).json({ success: false, message: 'No products found' });
-        }
-
-        res.status(200).json({
+        const productsCount = await Product.countDocuments(); // Counts total products
+        const apiFeature = new APIFeatures(Product.find(), req.query).search()
+        const products = await apiFeature.query; 
+        let filteredProductsCount = products.length;
+        
+        if (!products) 
+            return res.status(400).json({message: 'error loading products'})
+       return res.status(200).json({
             success: true,
-            count: products.length,
-            data: products
-        });
+            count: productsCount,
+            data: products,
+            filteredProductsCount,
+        })
+    
     } catch (error) {
         console.error("Error in getProducts:", error); 
         res.status(500).json({
