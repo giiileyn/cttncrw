@@ -1,36 +1,84 @@
 [
+   
+
     {
-        "name": "SanDisk Ultra 128GB SDXC UHS-I Memory Card up to 80MB/s",
-        "price": 45.89,
-        "description": "Ultra-fast cards to take better pictures and Full HD videos.",
+        "name": "Halter Back-Tie Denim Shirt",
+        "price": 389.00,
+        "description":"Chic and trendy, this halter-style denim shirt features a back-tie closure. Perfect for casual outings, it offers a stylish fit with a modern twist. Available in various sizes, easy to care for and durable.",
         "ratings": 4.5,
         "images": [
             {
-                "public_id": "products/prod_2_lch2ov",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473104/prod_2_lch2ov.png"
+                "public_id": "products/prod_4_jx8xln",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473107/prod_4_jx8xln.png"
             }
         ],
-        "category": "men",
-        "seller": "jhfg",
-        "stock": 50,
-        "numOfReviews": 32,
+        "category": "women",
+        "seller": "H&M",
+        "stock": 20,
+        "numOfReviews": 20,
+        "reviews": []
+    },
+
+    {
+        "name": "Oversized Long Sleeve Collared Button-Down Shirt",
+        "price": 299.00,
+        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/prod_5_h6y6w",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473108/prod_5_hq6y6w.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 20,
+        "numOfReviews": 20,
+        "reviews": []
+    },
+
+    {
+        "name": "Oversized Long Sleeve Collared Button-Down Shirt",
+        "price": 299.00,
+        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/prod_6_dvwjqm",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 20,
+        "numOfReviews": 20,
         "reviews": []
     },
     {
-        "name": "SanDisk Ultra 256GB SDXC UHS-I Memory Card up to 80MB/s",
-        "price": "79.99",
-        "description": "Experience higher capacity and faster speeds with the SanDisk Ultra 256GB SDXC UHS-I card, perfect for storing your high-quality images and videos.",
-        "ratings": 4.8,
-        "images": [
+        "name" : "Kauffman Orchards Homegrown McIntosh Apples",
+        "price" : 2.75,
+        "description" : "McIntosh is a pretty red/green apple with white flesh Homegrown in Kauffman's orchard in healthy Lancaster County soil McIntosh apples are famous for snacking, pies, salads, and applesauce Protected with soft, high-density foam for safe shipping to your door Not for sale to California, Oregon, or Washington due to state laws governing fresh produce",
+        "ratings" : 5,
+        "images" : [
             {
-                "public_id": "products/prod_3_syjizi",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473105/prod_3_syjizi.png"
+                "public_id" : "products/prod_6_dvwjqm",
+                "url" : "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+            },
+            {
+                "public_id" : "products/prod_5_hq6y6w",
+                "url" : "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473108/prod_5_hq6y6w.png" 
+            },
+            {
+                "public_id" : "products/prod_6_dvwjqm",
+                "url" : "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
             }
-        ],
-        "category": "men",
-        "seller": "Amazon",
-        "stock": 30,
-        "numOfReviews": 20,
+    ],
+        "category" : "toddler",
+        "seller" : "Kauffman's Fruit Farm & Market",
+        "stock" : 500,
+        "numOfReviews" : 1,
         "reviews": []
     }
+
+
 ]

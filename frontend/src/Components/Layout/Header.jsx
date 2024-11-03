@@ -1,45 +1,39 @@
-import React from 'react'
-import '../../App.css'
-
-
+import React from 'react';
+import '../../App.css'; // Ensure this path is correct for your project
 
 
 const Header = () => {
-	return (
-		<>
+  return (
+    <nav className="navbar row">
+      <div className="col-12 col-md-3 d-flex align-items-center">
+        <div className="navbar-brand d-flex align-items-center">
+          <img src="./images/cottoncrew.png" alt="Cotton Crew Logo" className="navbar-logo" />
+          <p className="ms-2">Cotton Crew</p>
+        </div>
+      </div>
+
+      <div className="nav-menu ">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/women">Women</a></li>
+          <li><a href="/men">Men</a></li>
+          <li><a href="/kids">Kids</a></li>
+          <li><a href="/toddlers">Toddlers</a></li>
+        </ul>
+      </div>
+	  
 		
-			<nav className="navbar row">
-				<div className="col-12 col-md-3">
-					<div className="navbar-brand">
-						<img src="./images/cottoncrew.png" />
-						<p>Cotton Crew</p>
-					</div>
-				</div>
-				
 
-				<div className = 'nav-menu'>
-					<ul>
-						<li>Home</li>
-						<li>Women</li>
-						<li>men</li>
-						<li>kids</li>
-						<li>todlder</li>
-					</ul>
-				</div>
+      <div className="cart">
+        <button className="btn" id="login_btn">Login</button>
 
-				
-				
-				<div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-					<button className="btn" id="login_btn">Login</button>
-
-					<span id="cart" className="ml-3">
-					<img src="./images/cart_icon.png" alt="Cart" id="cart_image"/>
-					</span>
-					<span className="ml-1" id="cart_count">0</span>
-				</div>
-			</nav>
-		</>
-	)
+        <span id="cart" className="ml-3 position-relative">
+          <img src="./images/cart_icon.png" alt="Cart" id="cart_image" />
+          <span className="cart_count" id="cart_count">0</span>
+        </span>
+      </div>
+    </nav>
+  );
 }
 
-export default Header
+export default Header;

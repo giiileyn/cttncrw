@@ -4,9 +4,11 @@ const APIFeatures = require('../utils/apiFeature');
 // Get All Products
 exports.getProducts = async (req, res) => {
     try {
-        const productsCount = await Product.countDocuments(); // Counts total products
-        const apiFeature = new APIFeatures(Product.find(), req.query).search()
-        const products = await apiFeature.query; 
+        const resPerPage = 4;
+        const productsCount = await Product.countDocuments();
+        const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter();
+        apiFeatures.pagination(resPerPage);
+        const products = await apiFeatures.query;
         let filteredProductsCount = products.length;
         
         if (!products) 
@@ -14,8 +16,10 @@ exports.getProducts = async (req, res) => {
        return res.status(200).json({
             success: true,
             count: productsCount,
-            data: products,
+            data: products, //donot remove e2ng data:
             filteredProductsCount,
+            resPerPage,
+            productsCount,
         })
     
     } catch (error) {
