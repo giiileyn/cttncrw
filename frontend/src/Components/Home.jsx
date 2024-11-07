@@ -14,14 +14,33 @@ const Home = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [resPerPage, setResPerPage] = useState(0)
     const [price, setPrice] = useState([1, 1000]);
+
+    const [category, setCategory] = useState('');
     let { keyword } = useParams();
 
+    const createSliderWithTooltip = Slider.createSliderWithTooltip;
     const Range = Slider.Range;
+    // const createSliderWithTooltip = Slider.createSliderWithTooltip;
 
-    const getProducts = async (keyword = '', page = 1, priceRange) => {
+
+    const categories = [
+        'women',
+        'men',
+        'kid',
+        'toddler',
+        'Home'
+    ]
+
+    const getProducts = async (keyword = '', page = 1, priceRange, category,) => {
+
         try {
-            const link = `http://localhost:5000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}`
-            const res = await axios.get(link)
+            let link = `http://localhost:5000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}`
+
+            if (category){
+                link  = `http://localhost:5000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}&category=${category}`
+
+            }
+            let res = await axios.get(link)
             setProducts(res.data.data)
             setProductsCount(res.data.count)
             setFilteredProductsCount(res.data.filteredProductsCount)
@@ -41,8 +60,8 @@ const Home = () => {
     }
 
     useEffect(() => {
-        getProducts(keyword, currentPage, price)
-    }, [keyword, currentPage, price]);
+        getProducts(keyword, currentPage, price, category, )
+    }, [keyword, currentPage, price,  category,]);
 
     return (
         <>
@@ -63,11 +82,36 @@ const Home = () => {
                                             min={1}
                                             max={1000}
                                             defaultValue={[1, 1000]}
-                                            value={price}
-                                            onChange={(price) => setPrice(price)}
+                                            // onChange={(price) => setPrice(price)}
                                             tipFormatter={(value) => `$${value}`}
+                                            tipProps={{
+                                                placement: "top",
+                                                visible: true
+                                            }}
+                                            value={price}
+                                            onChange={price => setPrice(price)}
                                         />
                                         <hr className="my-5" />
+                                        <hr className="my-5" />
+                                        <div className="mt-5">
+                                        <h4 className="mb-3">
+                                                    Categories
+                                        </h4>
+                                        <ul className="pl-0">
+                                                    {categories.map(category => (
+                                                        <li
+                                                            style={{
+                                                                cursor: 'pointer',
+                                                                listStyleType: 'none'
+                                                            }}
+                                                            key={category}
+                                                            onClick={() => setCategory(category)}
+                                                        >
+                                                            {category}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
                                     </div>
                                 </div>
 
