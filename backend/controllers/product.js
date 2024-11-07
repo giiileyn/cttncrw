@@ -6,7 +6,7 @@ exports.getProducts = async (req, res) => {
     try {
         const resPerPage = 4;
         const productsCount = await Product.countDocuments();
-        const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter();
+        const apiFeatures = new APIFeatures(Product.find(), req.query).search()
         apiFeatures.pagination(resPerPage);
         const products = await apiFeatures.query;
         let filteredProductsCount = products.length;
@@ -19,7 +19,7 @@ exports.getProducts = async (req, res) => {
             data: products, //donot remove e2ng data:
             filteredProductsCount,
             resPerPage,
-            productsCount,
+           
         })
     
     } catch (error) {
