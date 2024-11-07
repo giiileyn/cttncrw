@@ -3,7 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const products = require('./routes/product');
-const userRoutes = require('./routes/userRoutes');
+// const userRoutes = require('./routes/userRoutes');
+const authentication = require('./routes/authentication');
 
 const app = express();
 
@@ -12,8 +13,9 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors());
 
 
-app.use('/api/v1', userRoutes);
+// app.use('/api/v1', userRoutes);
 app.use('/api/v1', products);
+app.use('/api/v1', authentication);
 
 // Define your Mongoose model outside of the route handler
 const TestModel = mongoose.model('Test', new mongoose.Schema({ name: String }));

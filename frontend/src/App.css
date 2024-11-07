@@ -54,7 +54,8 @@ body {
 .nav-menu {
   background-color: #ffffff; /* Background color of the nav menu */
   padding: 10px; /* Padding around the menu */
-  border-bottom: 1px solid #ffffff; /* Optional: bottom border */
+  border-bottom: 1px solid #ffffff; 
+  /* Optional: bottom border */
 }
 
 .nav-menu ul {
@@ -68,6 +69,11 @@ body {
   margin-right: 20px; /* Space between each item */
   cursor: pointer; /* Change cursor to pointer on hover */
   transition: color 0.3s; /* Smooth transition for color change */
+  
+}
+
+.nav-menu a {
+  color: #1a1a1a;
 }
 
 .nav-menu li:hover {
