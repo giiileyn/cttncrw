@@ -12,15 +12,18 @@ import ProductDetails from './Components/Product/ProductDetails';
 
 function App() {
   
+  
   return (
     <>
 
       <Header/>
       <Router>
+     
         <Routes>
           <Route path ="/" element={<Home />} exact="true" />
           {/* <Search/> */}
           <Route path="/product/:id" element={<ProductDetails/>} exact="true" />
+          {/* <Route path="/search/:keyword" element={<Home />} exact="true" /> */}
         </Routes>
       </Router>
       <Footer/>

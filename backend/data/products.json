@@ -94,6 +94,74 @@
         "stock" : 500,
         "numOfReviews" : 1,
         "reviews": []
+    },
+    {
+        "name": "sample",
+        "price": 1000.00,
+        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/prod_6_dvwjqm",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 20,
+        "numOfReviews": 20,
+        "reviews": []
+    },
+    {
+        "name": "sample1",
+        "price": 1000.00,
+        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/prod_6_dvwjqm",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+            }
+        ],
+        "category": "men",
+        "seller": "H&M",
+        "stock": 20,
+        "numOfReviews": 20,
+        "reviews": []
+    },
+    {
+        "name": "sample2",
+        "price": 1000.00,
+        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/prod_6_dvwjqm",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+            }
+        ],
+        "category": "kid",
+        "seller": "H&M",
+        "stock": 20,
+        "numOfReviews": 20,
+        "reviews": []
+    },
+    {
+        "name": "sample3",
+        "price": 1000.00,
+        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/prod_6_dvwjqm",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "H&M",
+        "stock": 20,
+        "numOfReviews": 20,
+        "reviews": []
     }
 
 

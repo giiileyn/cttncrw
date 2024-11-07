@@ -1,4 +1,5 @@
-class APIFeatures {
+product = require ("../models/product");
+class APIFeature {
     constructor(query, queryStr) {
         this.query = query;
         this.queryStr = queryStr;
@@ -42,4 +43,4 @@ class APIFeatures {
         return this;
     }
 }
-module.exports = APIFeatures
+module.exports = APIFeature

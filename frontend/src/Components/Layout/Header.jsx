@@ -16,10 +16,10 @@ const Header = () => {
       <div className="nav-menu ">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/women">Women</a></li>
-          <li><a href="/men">Men</a></li>
-          <li><a href="/kids">Kids</a></li>
-          <li><a href="/toddlers">Toddlers</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Kids</a></li>
+          <li><a href="#">Toddlers</a></li>
         </ul>
       </div>
 	  
