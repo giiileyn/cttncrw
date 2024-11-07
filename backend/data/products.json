@@ -1,5 +1,21 @@
 [
-   
+    {
+        "name": "Women R-Neck T-Shirt",
+        "price": 389.00,
+        "description":"Chic and trendy, this halter-style denim shirt features a back-tie closure. Perfect for casual outings, it offers a stylish fit with a modern twist. Available in various sizes, easy to care for and durable.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/prod_4_jx8xln",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473107/prod_4_jx8xln.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 20,
+        "numOfReviews": 20,
+        "reviews": []
+    },
 
     {
         "name": "Halter Back-Tie Denim Shirt",

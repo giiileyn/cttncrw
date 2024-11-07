@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../App.css'; // Ensure this path is correct for your project
+import Searchh from './Searchh'
 
 
 const Header = () => {
@@ -22,7 +23,7 @@ const Header = () => {
         </ul>
       </div>
 	  
-		
+		{/* <Searchh/> */}
 
       <div className="cart">
         <button className="btn" id="login_btn">Login</button>
