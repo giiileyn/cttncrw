@@ -14,6 +14,7 @@ exports.registerUser = async (req, res, next) => {
             crop: "scale"
         });
 
+         
         const { name, email, password } = req.body;
 
         // Create a new user
@@ -40,4 +41,3 @@ exports.registerUser = async (req, res, next) => {
         res.status(500).json({ success: false, message: 'Server Error', error: error.message });
     }
 };
-

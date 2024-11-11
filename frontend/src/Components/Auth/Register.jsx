@@ -7,7 +7,6 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [avatar, setAvatar] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -21,13 +20,8 @@ const Register = () => {
     e.preventDefault();
 
     // Basic validation
-    if (!email || !password || !confirmPassword || !name || !avatar) {
+    if (!email || !password || !name || !avatar) {
       alert('Please fill in all fields.');
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      alert('Passwords do not match.');
       return;
     }
 
@@ -100,17 +94,6 @@ const Register = () => {
         </div>
 
         <div className="form-group">
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            className="form-control"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-
-        <div className="form-group">
           <label>Avatar</label>
           <input
             type="file"
@@ -133,3 +116,5 @@ const Register = () => {
 };
 
 export default Register;
+
+ 
