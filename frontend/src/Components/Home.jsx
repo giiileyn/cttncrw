@@ -6,6 +6,7 @@ import Product from './Product/Product'
 import Pagination from 'react-js-pagination'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import Loader from './Layout/Loader' //new
 
 const Home = () => {
     const [products, setProducts] = useState([])
@@ -16,6 +17,7 @@ const Home = () => {
     const [price, setPrice] = useState([1, 1000]);
 
     const [category, setCategory] = useState('');
+    const [loading, setLoading] = useState(true) //new
     let { keyword } = useParams();
 
     const createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -45,6 +47,7 @@ const Home = () => {
             setProductsCount(res.data.count)
             setFilteredProductsCount(res.data.filteredProductsCount)
             setResPerPage(res.data.resPerPage)
+            setLoading(false)//new
         } catch (error) {
             console.error("Error fetching products:", error);
         }
@@ -66,7 +69,8 @@ const Home = () => {
     return (
         <>
             <MetaData title={'Buykrfn'} />
-            <div className="container container-fluid">
+            {/* <div className="container container-fluid"> */}
+            {loading ? <Loader /> : ( <div className="container container-fluid">
                 <h1 id="products_heading">Latest Products</h1>
                 <section id="products" className="container mt-5">
                     <div className="row">
@@ -144,12 +148,15 @@ const Home = () => {
                             lastPageText={'Last'}
                             itemClass="page-item"
                             linkClass="page-link"
-                        />
-                    </div>
-                )}
-            </div>
-        </>
-    )
-}
+                            />
+                            </div>)}
+    
+                
+                </div>)}
+               
+            </>
+        )
+    }
+
 
 export default Home;

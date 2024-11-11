@@ -7,8 +7,23 @@ import axios from 'axios'
 const ProductDetails = () => {
     const [product, setProduct] = useState({})
     const [error, setError] = useState('')
+    const [quan, setQuan] =  useState(1)
     let { id } = useParams()
     let navigate = useNavigate()
+
+    const increaseQuan =  () =>{
+        const count = document.querySelector('.count')
+        if (count.valueAsNumber >= product.stock) return;
+        const qty = count.valueAsNumber + 1;
+        setQuan(qty)
+    }
+
+    const decreaseQuan = () =>{
+        const count = document.querySelector('.count')
+        if (count.valueAsNumber <= 1) return;
+        const qty = count.valueAsNumber - 1;
+        setQuan(qty)
+    }
 
     const productDetails = async (id) => {
         const link = `http://localhost:3000/api/v1/product/${id}`;
@@ -60,13 +75,14 @@ const ProductDetails = () => {
 
                     <p id="product_price">₱{product.price}</p>
                     <div className="stockCounter d-inline">
+                        <span className='btn btn-danger minus' onClick={decreaseQuan}>-</span>
+                        {/* <span className="btn btn-danger minus" >-</span> */}
 
-                        <span className="btn btn-danger minus" >-</span>
+                        {/* <input type="number" className="form-control count d-inline" readOnly /> */}
+                        <input type='number' className='form-control count d -inline' value={quan} readOnly/>
 
-                        <input type="number" className="form-control count d-inline" readOnly />
-
-
-                        <span className="btn btn-primary plus" >+</span>
+                        {/* <span className="btn btn-primary plus" >+</span> */}
+                        <span className="btn btn-primary plus" onClick={increaseQuan}>+</span>
                     </div>
 
                     <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={product.stock === 0} >Add to Cart</button>
@@ -83,6 +99,8 @@ const ProductDetails = () => {
                     <p id="product_seller mb-3">Sold by: <strong>{product.seller}</strong></p>
                     {/* <div className="alert alert-danger mt-5" type='alert'>Login to post your review.</div> */}
                     <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal"  >
+                               
+                               
                                 Submit Your Review
                             </button>
                     <div className="row mt-2 mb-5">

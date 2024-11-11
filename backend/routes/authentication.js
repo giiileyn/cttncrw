@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const upload = require("../utils/multer");
-const { registerUser } = require('../controllers/authentication');
+const { registerUser, loginUser } = require('../controllers/authentication');
 
 router.post('/register', upload.single("avatar"), registerUser);
-
+router.post('/login',loginUser);
 
 module.exports  =  router;

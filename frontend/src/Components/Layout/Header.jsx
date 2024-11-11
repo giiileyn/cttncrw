@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import '../../App.css'; // Ensure this path is correct for your project
-// import Searchh from './Searchh'
+import Searchh from '../HeaderContent/Searchh';
 
 const Header = () => {
   return (
@@ -23,7 +23,7 @@ const Header = () => {
         </ul>
       </div>
 
-      {/* <Searchh/> */}
+      <Searchh/>
 
       <div className="cart">
         {/* Use Link for navigation */}

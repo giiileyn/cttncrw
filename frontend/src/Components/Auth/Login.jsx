@@ -1,84 +1,84 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';  // Import Link for navigation
+import Loader from '../Layout/Loader';
+// import MetaData from '../Layout/MetaData';
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 import './Login.css';  // Optional for styling
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-
-    // Perform basic validation
-    if (!email || !password) {
-      alert("Please enter both email and password.");
-      return;
-    }
-
-    // Here you would call an API to validate the login credentials
-    // Simulating login success and redirect
-    // Replace this with actual API call later
-    const response = await fakeLoginAPI(email, password);
-    
-    if (response.success) {
-      navigate('/'); // Redirect to homepage after successful login
-    } else {
-      alert('Invalid credentials, please try again.');
-    }
-  };
-
-  // Fake API call for simulation
-  const fakeLoginAPI = (email, password) => {
-    // This is just a placeholder. Replace this with actual API call logic.
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        if (email === 'user@example.com' && password === 'password') {
-          resolve({ success: true });
-        } else {
-          resolve({ success: false });
+  
+  const login = async (email, password) => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }
-      }, 1000);
-    });
-  };
+        const { data } = await axios.post('http://localhost:3000/api/v1/login', { email, password }, config)
+        console.log(data)
+        alert("Login successful!");
+        navigate("/");
+        
+    } catch (error) {
+        
+    }
+}
+const submitHandler = (e) => {
+    e.preventDefault();
+    login(email, password)
+}
+// useEffect(() => {
+//     if (getUser() && redirect === 'shipping' ) {
+//          navigate(/${redirect})
+//     }
+// }, [])
 
-  return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
 
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-
-        <button type="submit" className="btn btn-primary">
-          Login
-        </button>
-      </form>
-
-      {/* Register link */}
-      <div className="register-link">
-        <p>Don't have an account? <Link to="/register">Register here</Link></p>
+return (
+  <div className="login-container">
+    <h2>Login</h2>
+    <form onSubmit={submitHandler}>
+      <div className="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          className="form-control"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
       </div>
+
+      <div className="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          className="form-control"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+
+      <button type="submit" className="btn btn-primary">
+        Login
+      </button>
+    </form>
+
+    {/* Register link */}
+    <div className="register-link">
+      <p>Don't have an account? <Link to="/register">Register here</Link></p>
     </div>
-  );
+  </div>
+);
 };
+
 
 export default Login;
