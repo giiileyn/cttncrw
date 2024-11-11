@@ -7,29 +7,31 @@ import Footer from './Components/Layout/Footer'
 // import Search from './Components/Layout/Search';
 import Home from './Components/Home';
 import ProductDetails from './Components/Product/ProductDetails';
-
+// import Register from './Components/Auth/Register';
+import { AuthProvider } from './Contexts/AuthContext';
+import Register from './Components/Auth/Register';
+import Login from './Components/Auth/Login';
 
 
 function App() {
   
   
   return (
-    <>
-
-      <Header/>
-      <Router>
-     
-        <Routes>
-          <Route path ="/" element={<Home />} exact="true" />
-          {/* <Search/> */}
-          <Route path="/product/:id" element={<ProductDetails/>} exact="true" />
-          {/* <Route path="/search/:keyword" element={<Home />} exact="true" /> */}
-        </Routes>
-      </Router>
-      <Footer/>
+    <Router>
+      <Header />
       
-    </>
-  )
+      {/* Define Routes here */}
+      <Routes>
+        <Route path="/" element={<Home />} exact />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/product/:id" element={<ProductDetails />} exact />
+        
+      </Routes>
+
+      <Footer />
+    </Router>
+  );
 }
 
 export default App

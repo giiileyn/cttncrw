@@ -34,10 +34,10 @@ const Home = () => {
     const getProducts = async (keyword = '', page = 1, priceRange, category,) => {
 
         try {
-            let link = `http://localhost:5000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}`
+            let link = `http://localhost:3000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}`
 
             if (category){
-                link  = `http://localhost:5000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}&category=${category}`
+                link  = `http://localhost:3000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}&category=${category}`
 
             }
             let res = await axios.get(link)

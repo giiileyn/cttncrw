@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import '../../App.css'; // Ensure this path is correct for your project
-import Searchh from './Searchh'
-
+// import Searchh from './Searchh'
 
 const Header = () => {
   return (
@@ -13,20 +13,23 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="nav-menu ">
+      <div className="nav-menu">
         <ul>
-          <li><a href ="/">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="#">Women</a></li>
           <li><a href="#">Men</a></li>
           <li><a href="#">Kids</a></li>
           <li><a href="#">Toddlers</a></li>
         </ul>
       </div>
-	  
-		{/* <Searchh/> */}
+
+      {/* <Searchh/> */}
 
       <div className="cart">
-        <button className="btn" id="login_btn">Login</button>
+        {/* Use Link for navigation */}
+        <Link to="/login">
+          <button className="btn" id="login_btn">Login</button>
+        </Link>
 
         <span id="cart" className="ml-3 position-relative">
           <img src="./images/cart_icon.png" alt="Cart" id="cart_image" />

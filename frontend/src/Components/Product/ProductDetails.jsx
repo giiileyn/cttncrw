@@ -11,7 +11,7 @@ const ProductDetails = () => {
     let navigate = useNavigate()
 
     const productDetails = async (id) => {
-        const link = `http://localhost:5000/api/v1/product/${id}`;
+        const link = `http://localhost:3000/api/v1/product/${id}`;
         try {
             let res = await axios.get(link)
             setProduct(res.data.product)
