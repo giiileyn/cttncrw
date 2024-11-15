@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { registerUser } from '../../firebase/authUtils';  // Import registerUser correctly
 import axios from 'axios';
 import './Register.css';
 
@@ -24,7 +25,7 @@ const Register = () => {
       alert('Please fill in all fields.');
       return;
     }
-
+    
     setLoading(true);
 
     // Prepare form data for submission
@@ -116,5 +117,3 @@ const Register = () => {
 };
 
 export default Register;
-
- 

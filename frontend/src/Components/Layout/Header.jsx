@@ -1,9 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import '../../App.css'; // Ensure this path is correct for your project
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; 
 import Searchh from '../HeaderContent/Searchh';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './Header.css';
 
-const Header = () => {
+const Header = ({ cartItems }) => {
+  const [user, setUser] = useState(null); 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('role'); 
+    localStorage.removeItem('cartItems'); // Assuming your cart items are stored under this key
+    toast.success('Logged out', { position: 'bottom-right' });
+    setUser(null);
+    navigate('/login');
+  };
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+      setUser(storedUser);  // Set user data from localStorage if token exists
+    }
+  }, []);
+  
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  const defaultAvatar = '/images/avatar.jpg';
+
   return (
     <nav className="navbar row">
       <div className="col-12 col-md-3 d-flex align-items-center">
@@ -23,21 +53,42 @@ const Header = () => {
         </ul>
       </div>
 
-      <Searchh/>
+      <Searchh />
 
-      <div className="cart">
-        {/* Use Link for navigation */}
-        <Link to="/login">
-          <button className="btn" id="login_btn">Login</button>
+      <div className="dropdown-container">
+        <button 
+          className="settings-logo" 
+          onClick={toggleDropdown}
+        >
+          <img src="/images/settings-icon.png" alt="Settings" className="settings-icon" />
+        </button>
+        
+        {isDropdownOpen && (
+          <div className="dropdown-menu">
+            {user ? (
+              <>
+             
+              <Link to="/profile" className="dropdown-item">Profile</Link>
+                
+                {user.role === 'admin' && (
+                  <Link to="/orders" className="dropdown-item">Orders</Link>
+                )}
+                <button className="dropdown-item text-danger" onClick={logoutHandler}>Logout</button>
+              </>
+            ) : (
+              <Link to="/login" className="login-btn">Login</Link>
+              // <button className="dropdown-item text-danger" onClick={logoutHandler}>login</button>
+            )}
+          </div>
+        )}
+
+        <Link to="/cart" style={{ textDecoration: 'none' }}>
+          <span id="cart" className="ml-3">Cart</span>
         </Link>
-
-        <span id="cart" className="ml-3 position-relative">
-          <img src="./images/cart_icon.png" alt="Cart" id="cart_image" />
-          <span className="cart_count" id="cart_count">0</span>
-        </span>
+        <span className="ml-1" id="cart_count">{cartItems.length}</span>
       </div>
     </nav>
   );
-}
+};
 
 export default Header;

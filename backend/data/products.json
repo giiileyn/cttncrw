@@ -3,7 +3,7 @@
         "name": "Women R-Neck T-Shirt",
         "price": 389.00,
         "description":"Chic and trendy, this halter-style denim shirt features a back-tie closure. Perfect for casual outings, it offers a stylish fit with a modern twist. Available in various sizes, easy to care for and durable.",
-        "ratings": 4.5,
+        "ratings": 5,
         "images": [
             {
                 "public_id": "products/prod_4_jx8xln",
@@ -12,157 +12,515 @@
         ],
         "category": "women",
         "seller": "H&M",
-        "stock": 20,
-        "numOfReviews": 20,
+        "stock": 2090,
+        "numOfReviews": 209,
         "reviews": []
     },
-
     {
-        "name": "Halter Back-Tie Denim Shirt",
-        "price": 389.00,
-        "description":"Chic and trendy, this halter-style denim shirt features a back-tie closure. Perfect for casual outings, it offers a stylish fit with a modern twist. Available in various sizes, easy to care for and durable.",
-        "ratings": 4.5,
+        "name": "Women Stripped Polo Terno  ",
+        "price": 489.00,
+        "description":"This versatile set typically includes a striped polo shirt and matching bottoms, perfect for casual outings or semi-formal occasions.",
+        "ratings": 5,
         "images": [
             {
-                "public_id": "products/prod_4_jx8xln",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473107/prod_4_jx8xln.png"
+                "public_id": "products/prod_19_mlucwp",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473124/prod_19_mlucwp.png"
             }
         ],
         "category": "women",
         "seller": "H&M",
-        "stock": 20,
-        "numOfReviews": 20,
+        "stock": 1100,
+        "numOfReviews": 490,
+        "reviews": []
+    },
+    {
+        "name": "Women's Black One-Shoulder Shirt  ",
+        "price": 490.00,
+        "description":"Its asymmetrical design combines sophistication and modern style, suitable for a variety of occasions.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_18_pdj47x",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473123/prod_18_pdj47x.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 1300,
+        "numOfReviews": 890,
         "reviews": []
     },
 
     {
-        "name": "Oversized Long Sleeve Collared Button-Down Shirt",
-        "price": 299.00,
-        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
-        "ratings": 4.5,
+        "name": "Women's White Sando   ",
+        "price": 540.00,
+        "description":"A simple, versatile, and timeless wardrobe essential. It’s perfect for layering or wearing on its own, offering both style and comfort for a wide range of occasions.",
+        "ratings": 5,
         "images": [
             {
-                "public_id": "products/prod_5_h6y6w",
+                "public_id": "products/prod_17_zkawhy",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473122/prod_17_zkawhy.png"
+            }
+        ],
+        "category": "women",
+        "seller": "Oxygn",
+        "stock": 1200,
+        "numOfReviews": 490,
+        "reviews": []
+    },
+    {
+        "name": "Women's Demin Sando ",
+        "price": 670.00,
+        "description":"A  casual piece that combines the durability and timeless appeal of denim with the comfort and versatility of a sando.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_16_lmxlbu",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473119/prod_16_lmxlbu.png"
+            }
+        ],
+        "category": "women",
+        "seller": "Oxygn",
+        "stock": 1900,
+        "numOfReviews": 440,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's Pink NYC Sando ",
+        "price": 470.00,
+        "description":"A fun, stylish, and casual piece that combines a bold graphic design with the comfort of a sando.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_15_noaqlw",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473118/prod_15_noaqlw.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 1100,
+        "numOfReviews": 540,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's Green T-shirt with fluppy Shoulder ",
+        "price": 578.00,
+        "description":"A shirt is a stylish and contemporary piece that adds a touch of flair to a classic design.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_14_jp9183",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473115/prod_14_jp9183.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 1900,
+        "numOfReviews": 940,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's Lavender Long Sleeve with fluppy Shoulder ",
+        "price": 580.00,
+        "description":"Afashionable and feminine piece that combines the softness of lavender with dramatic, textured shoulder.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_13_cj1r00",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473114/prod_13_cj1r00.png"
+            }
+        ],
+        "category": "women",
+        "seller": "Oxygn",
+        "stock": 1700,
+        "numOfReviews": 140,
+        "reviews": []
+    },
+    {
+        "name": "Women's Tube Dress ",
+        "price": 599.00,
+        "description":"A flattering and versatile piece that emphasizes the neckline and shoulders, offering a sleek and streamlined look.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_12_cvbj1h",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473114/prod_12_cvbj1h.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 1200,
+        "numOfReviews": 310,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's Flowerry Sando Shirt ",
+        "price": 559.00,
+        "description":"A light, breezy top that combines a relaxed fit with a playful floral print. Perfect for warm weather, it offers both comfort and style with its feminine design and vibrant patterns.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_11_uel0lb",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473113/prod_11_uel0lb.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 1000,
+        "numOfReviews": 378,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's Flowerry Long  Fluppy Long Sleeve  ",
+        "price": 589.00,
+        "description":"A stylish and feminine piece that combines a vibrant floral print with dramatic, voluminous sleeves.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_10_zwk5hz",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473111/prod_10_zwk5hz.png"
+            }
+        ],
+        "category": "women",
+        "seller": "Oxygn",
+        "stock": 1960,
+        "numOfReviews": 376,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's Terno Plain Blue Knotted T-shirt ",
+        "price": 659.00,
+        "description":"A  trendy and stylish piece that combines simplicity with a unique twist.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_9_glonxl",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473110/prod_9_glonxl.png"
+            }
+        ],
+        "category": "women",
+        "seller": "H&M",
+        "stock": 2160,
+        "numOfReviews": 776,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's Terno Plain Blue Terno",
+        "price": 559.00,
+        "description":"A tylish and contemporary set that combines a simple, solid blue color with a coordinated design.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_8_pdw2xh",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_8_pdw2xh.png"
+            }
+        ],
+        "category": "women",
+        "seller": "HM",
+        "stock": 1180,
+        "numOfReviews": 276,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's Plain White Turtle Neck",
+        "price": 589.00,
+        "description":"Aclassic wardrobe staple that offers both warmth and style. Featuring a sleek, fitted design, this versatile top is perfect for layering in cooler weather or wearing on its own for a polished, chic look.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_6_dvwjqm",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+            }
+        ],
+        "category": "women",
+        "seller": "HM",
+        "stock": 1750,
+        "numOfReviews": 876,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's  White Polo",
+        "price": 489.00,
+        "description":"A classic and versatile top that combines a sporty, casual vibe with a polished appearance.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_7_q8z1vs",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473108/prod_7_q8z1vs.png"
+            }
+        ],
+        "category": "women",
+        "seller": "Oxygn",
+        "stock": 1250,
+        "numOfReviews": 976,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's  Plain Red Polo",
+        "price": 449.00,
+        "description":"A bold and stylish top that combines a classic polo design with a vibrant red hue.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_5_hq6y6w",
                 "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473108/prod_5_hq6y6w.png"
             }
         ],
         "category": "women",
-        "seller": "H&M",
-        "stock": 20,
-        "numOfReviews": 20,
+        "seller": "Oxygn",
+        "stock":950,
+        "numOfReviews": 933,
         "reviews": []
     },
 
     {
-        "name": "Oversized Long Sleeve Collared Button-Down Shirt",
-        "price": 299.00,
-        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
-        "ratings": 4.5,
+        "name": "Women's  Demin Navy  Sando ",
+        "price": 439.00,
+        "description":"A trendy and casual top that combines the timeless appeal of denim with a relaxed, sleeveless design.",
+        "ratings": 5,
         "images": [
             {
-                "public_id": "products/prod_6_dvwjqm",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+                "public_id": "products/prod_4_jx8xln",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473107/prod_4_jx8xln.png"
+            }
+        ],
+        "category": "women",
+        "seller": "Oxygn",
+        "stock":980,
+        "numOfReviews": 903,
+        "reviews": []
+    },
+
+    {
+        "name": "Women's  White Crop Top Polo ",
+        "price": 489.00,
+        "description":"A combines the classic polo style with a trendy, cropped design, making it a fresh and fashionable choice for casual and semi-casual occasions.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_3_syjizi",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473105/prod_3_syjizi.png"
             }
         ],
         "category": "women",
         "seller": "H&M",
-        "stock": 20,
-        "numOfReviews": 20,
+        "stock":800,
+        "numOfReviews": 653,
         "reviews": []
     },
+
+
     {
-        "name" : "Kauffman Orchards Homegrown McIntosh Apples",
-        "price" : 2.75,
-        "description" : "McIntosh is a pretty red/green apple with white flesh Homegrown in Kauffman's orchard in healthy Lancaster County soil McIntosh apples are famous for snacking, pies, salads, and applesauce Protected with soft, high-density foam for safe shipping to your door Not for sale to California, Oregon, or Washington due to state laws governing fresh produce",
-        "ratings" : 5,
-        "images" : [
-            {
-                "public_id" : "products/prod_6_dvwjqm",
-                "url" : "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
-            },
-            {
-                "public_id" : "products/prod_5_hq6y6w",
-                "url" : "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473108/prod_5_hq6y6w.png" 
-            },
-            {
-                "public_id" : "products/prod_6_dvwjqm",
-                "url" : "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
-            }
-    ],
-        "category" : "toddler",
-        "seller" : "Kauffman's Fruit Farm & Market",
-        "stock" : 500,
-        "numOfReviews" : 1,
-        "reviews": []
-    },
-    {
-        "name": "sample",
-        "price": 1000.00,
-        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
-        "ratings": 4.5,
+        "name": "Women's Black T-Shirt  ",
+        "price": 439.00,
+        "description":"A wardrobe essential that combines simplicity, comfort, and versatility.",
+        "ratings": 5,
         "images": [
             {
-                "public_id": "products/prod_6_dvwjqm",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+                "public_id": "products/prod_2_lch2ov",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473104/prod_2_lch2ov.png"
             }
         ],
         "category": "women",
         "seller": "H&M",
-        "stock": 20,
-        "numOfReviews": 20,
+        "stock":700,
+        "numOfReviews": 253,
         "reviews": []
     },
+
     {
-        "name": "sample1",
-        "price": 1000.00,
-        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
-        "ratings": 4.5,
+        "name": "Men Polo Green Plain",
+        "price": 589.00,
+        "description":"This Polo Green shirt is a versatile wardrobe staple, perfect for men who value style, quality, and comfort",
+        "ratings": 5,
         "images": [
             {
-                "public_id": "products/prod_6_dvwjqm",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+                "public_id": "products/prod_24_vln8lh",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473131/prod_24_vln8lh.png"
             }
         ],
         "category": "men",
         "seller": "H&M",
-        "stock": 20,
-        "numOfReviews": 20,
+        "stock": 2000,
+        "numOfReviews": 210,
+        "reviews": []
+    },
+
+    {
+        "name": "Men Plain long Sleeve",
+        "price": 589.00,
+        "description":"A long plain sleeve shirt for men is a versatile and timeless wardrobe essential, perfect for both casual and formal occasions.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_23_eq6fne",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473130/prod_23_eq6fne.png"
+            }
+        ],
+        "category": "men",
+        "seller": "Bench",
+        "stock": 2000,
+        "numOfReviews": 250,
+        "reviews": []
+    },
+
+    {
+        "name": "Men Plain Cotton short Sleeve with bottons ",
+        "price": 569.00,
+        "description":"A long plain sleeve shirt for men is a versatile and timeless wardrobe essential, perfect for both casual and formal occasions.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_22_wdsbtt",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473129/prod_22_wdsbtt.png"
+            }
+        ],
+        "category": "men",
+        "seller": "Bench",
+        "stock": 2100,
+        "numOfReviews": 260,
         "reviews": []
     },
     {
-        "name": "sample2",
-        "price": 1000.00,
-        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
-        "ratings": 4.5,
+        "name": "Men White Plain Cotton Long Sleeve  ",
+        "price": 500.00,
+        "description":"It combines simplicity with elegance, offering a clean and polished look suitable for a variety of settings.",
+        "ratings": 5,
         "images": [
             {
-                "public_id": "products/prod_6_dvwjqm",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+                "public_id": "products/prod_21_eip4wy",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473126/prod_21_eip4wy.png"
             }
         ],
-        "category": "kid",
-        "seller": "H&M",
-        "stock": 20,
-        "numOfReviews": 20,
+        "category": "men",
+        "seller": "Bench",
+        "stock": 2200,
+        "numOfReviews": 560,
         "reviews": []
     },
+
     {
-        "name": "sample3",
-        "price": 1000.00,
-        "description":"Relaxed and stylish with a classic collar, button-down front, and long sleeves. Perfect for layering or wearing alone. Comfortable fit, various colors and sizes, easy care.",
-        "ratings": 4.5,
+        "name": "Men Black Plain  T-shirt  ",
+        "price": 499.00,
+        "description":"The Men's Black Plain T-Shirt is a classic and versatile wardrobe essential, suitable for a variety of occasions.",
+        "ratings": 5,
         "images": [
             {
-                "public_id": "products/prod_6_dvwjqm",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473109/prod_6_dvwjqm.png"
+                "public_id": "products/prod_20_oeurlx",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473125/prod_20_oeurlx.png"
             }
         ],
-        "category": "toddler",
-        "seller": "H&M",
-        "stock": 20,
-        "numOfReviews": 20,
+        "category": "men",
+        "seller": "Bench",
+        "stock": 2100,
+        "numOfReviews": 590,
+        "reviews": []
+    },
+    
+
+    
+
+    
+   
+
+    {
+        "name": "Girls Tie Die T-Shirt  ",
+        "price": 479.00,
+        "description":"A fun, vibrant, and colorful top that adds a playful and energetic touch to any wardrobe.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_28_fpv7av",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473103/prod_28_fpv7av.png"
+            }
+        ],
+        "category": "kids",
+        "seller": "genger Snap",
+        "stock":1200,
+        "numOfReviews": 893,
+        "reviews": []
+    },
+
+ {
+        "name": "Girls Pink  T-Shirt  ",
+        "price": 469.00,
+        "description":"A cheerful and versatile wardrobe staple, offering a soft and comfortable fit while adding a pop of color to any casual look.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_27_dmrnbb",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473104/prod_27_dmrnbb.png"
+            }
+        ],
+        "category": "kids",
+        "seller": "genger Snap",
+        "stock":1000,
+        "numOfReviews": 493,
+        "reviews": []
+    },
+
+    {
+        "name": "Girls Lavender  T-Shirt  ",
+        "price": 489.00,
+        "description":"A soft and stylish piece that brings a calming, pastel touch to any casual wardrobe.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_29_cefatd",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473103/prod_29_cefatd.png"
+            }
+        ],
+        "category": "kids",
+        "seller": "genger Snap",
+        "stock":800,
+        "numOfReviews": 733,
+        "reviews": []
+    },
+
+    {
+        "name": "Men  T-Shirt  With Some Printed Stuffs ",
+        "price": 589.00,
+        "description":"A dynamic and stylish piece of clothing, perfect for adding a personal touch to everyday casual wear.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_26_aknmvq",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473103/prod_26_aknmvq.png"
+            }
+        ],
+        "category": "men",
+        "seller": "Bench",
+        "stock": 560,
+        "numOfReviews": 453,
+        "reviews": []
+    },
+
+    {
+        "name": "Men  Plain Polo ",
+        "price": 599.00,
+        "description":"A classic and versatile wardrobe staple that combines comfort, style, and sophistication.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_25_agdmp1",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473103/prod_25_agdmp1.png"
+            }
+        ],
+        "category": "men",
+        "seller": "Bench",
+        "stock": 590,
+        "numOfReviews": 953,
         "reviews": []
     }
-
 
 ]

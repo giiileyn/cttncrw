@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import MetaData from '../Layout/MetaData'
 import { Carousel } from 'react-bootstrap'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import axios from 'axios'
 const ProductDetails = () => {
@@ -16,6 +18,8 @@ const ProductDetails = () => {
         if (count.valueAsNumber >= product.stock) return;
         const qty = count.valueAsNumber + 1;
         setQuan(qty)
+        // if (quan >= product.stock) return;
+        // setQuan(prevQty => prevQty + 1);
     }
 
     const decreaseQuan = () =>{
@@ -23,22 +27,57 @@ const ProductDetails = () => {
         if (count.valueAsNumber <= 1) return;
         const qty = count.valueAsNumber - 1;
         setQuan(qty)
+        // if (quan <= 1) return;
+        // setQuan(prevQty => prevQty - 1);
     }
 
     const productDetails = async (id) => {
-        const link = `http://localhost:3000/api/v1/product/${id}`;
         try {
-            let res = await axios.get(link)
-            setProduct(res.data.product)
-
-
+            let res = await axios.get(`http://localhost:3000/api/v1/product/${id}`);
+            setProduct(res.data.product); // Update the state with the fetched product details
         } catch (err) {
-            console.log(err)
-            setError('Product not found')
-
-
+            console.log(err);
+            setError('Product not found');
         }
     }
+
+
+    const addItemCart = () => {
+        // Check if user is logged in by checking localStorage
+        const user = JSON.parse(localStorage.getItem('user'));  // Assuming user info is stored in localStorage
+        if (!user) {
+            // If no user is found in localStorage, redirect to the home page
+            toast.error('Please login to add items to your cart');
+            navigate('/login');
+            return;
+        }
+
+        // Create a cart item object
+        const cartItem = {
+            productId: product._id,
+            name: product.name,
+            price: product.price,
+            image: product.images[0]?.url, // Use the first image if available
+            quantity: quan,
+        };
+
+        // Fetch existing cartItems from localStorage or initialize
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Check if the product already exists
+        const existingProductIndex = cartItems.findIndex(item => item.productId === product._id);
+        if (existingProductIndex >= 0) {
+            cartItems[existingProductIndex].quantity += quan; // Increment quantity
+        } else {
+            cartItems.push(cartItem); // Add new product
+        }
+
+        // Save back to localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        toast.success('Product added to cart');
+        };
+
     useEffect(() => {
         productDetails(id)
         if (error) {
@@ -46,7 +85,16 @@ const ProductDetails = () => {
             setError('')
         }
     }, [id, error]);
-    return (
+
+
+        useEffect(() => {
+            productDetails(id)
+            if (error) {
+                navigate('/')
+                setError('')
+            }
+        }, [id, error]);
+    return (    
         <>
             <MetaData title={product.name} />
             <div className="row d-flex justify-content-around">
@@ -85,7 +133,7 @@ const ProductDetails = () => {
                         <span className="btn btn-primary plus" onClick={increaseQuan}>+</span>
                     </div>
 
-                    <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={product.stock === 0} >Add to Cart</button>
+                    <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" onClick={addItemCart} disabled={product.stock === 0}>Add to Cart</button>
 
                     <hr />
 
