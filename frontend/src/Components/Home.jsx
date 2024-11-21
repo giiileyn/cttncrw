@@ -13,17 +13,14 @@ const Home = () => {
     const [productsCount, setProductsCount] = useState(0)
     const [filteredProductsCount, setFilteredProductsCount] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
-    const [resPerPage, setResPerPage] = useState(0)
+    const [resPerPage, setResPerPage] = useState(12) // Set default to 12 per page
     const [price, setPrice] = useState([1, 1000]);
-
     const [category, setCategory] = useState('');
     const [loading, setLoading] = useState(true) //new
     let { keyword } = useParams();
 
     const createSliderWithTooltip = Slider.createSliderWithTooltip;
     const Range = Slider.Range;
-    // const createSliderWithTooltip = Slider.createSliderWithTooltip;
-
 
     const categories = [
         'women',
@@ -33,21 +30,19 @@ const Home = () => {
         'Home'
     ]
 
-    const getProducts = async (keyword = '', page = 1, priceRange, category,) => {
-
+    const getProducts = async (keyword = '', page = 1, priceRange, category) => {
         try {
             let link = `http://localhost:3000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}`
 
-            if (category){
-                link  = `http://localhost:3000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}&category=${category}`
-
+            if (category) {
+                link = `http://localhost:3000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}&category=${category}`
             }
+
             let res = await axios.get(link)
             setProducts(res.data.data)
             setProductsCount(res.data.count)
             setFilteredProductsCount(res.data.filteredProductsCount)
-            setResPerPage(res.data.resPerPage)
-            setLoading(false)//new
+            setLoading(false) //new
         } catch (error) {
             console.error("Error fetching products:", error);
         }
@@ -63,45 +58,41 @@ const Home = () => {
     }
 
     useEffect(() => {
-        getProducts(keyword, currentPage, price, category, )
-    }, [keyword, currentPage, price,  category,]);
+        getProducts(keyword, currentPage, price, category)
+    }, [keyword, currentPage, price, category]);
 
     return (
         <>
             <MetaData title={'Buykrfn'} />
-            {/* <div className="container container-fluid"> */}
-            {loading ? <Loader /> : ( <div className="container container-fluid">
-                <h1 id="products_heading">Latest Products</h1>
-                <section id="products" className="container mt-5">
-                    <div className="row">
-                        {keyword ? (
-                            <>
-                                <div className="col-6 col-md-3 mt-5 mb-5">
-                                    <div className="px-5">
-                                        <Range
-                                            marks={{
-                                                1: `$1`,
-                                                1000: `$1000`
-                                            }}
-                                            min={1}
-                                            max={1000}
-                                            defaultValue={[1, 1000]}
-                                            // onChange={(price) => setPrice(price)}
-                                            tipFormatter={(value) => `$${value}`}
-                                            tipProps={{
-                                                placement: "top",
-                                                visible: true
-                                            }}
-                                            value={price}
-                                            onChange={price => setPrice(price)}
-                                        />
-                                        <hr className="my-5" />
-                                        <hr className="my-5" />
-                                        <div className="mt-5">
-                                        <h4 className="mb-3">
-                                                    Categories
-                                        </h4>
-                                        <ul className="pl-0">
+            {loading ? <Loader /> : (
+                <div className="container container-fluid">
+                    <h1 id="products_heading">Latest Products</h1>
+                    <section id="products" className="container mt-5">
+                        <div className="row">
+                            {keyword ? (
+                                <>
+                                    <div className="col-6 col-md-3 mt-5 mb-5">
+                                        <div className="px-5">
+                                            <Range
+                                                marks={{
+                                                    1: `$1`,
+                                                    1000: `$1000`
+                                                }}
+                                                min={1}
+                                                max={1000}
+                                                defaultValue={[1, 1000]}
+                                                tipFormatter={(value) => `$${value}`}
+                                                tipProps={{
+                                                    placement: "top",
+                                                    visible: true
+                                                }}
+                                                value={price}
+                                                onChange={price => setPrice(price)}
+                                            />
+                                            <hr className="my-5" />
+                                            <div className="mt-5">
+                                                <h4 className="mb-3">Categories</h4>
+                                                <ul className="pl-0">
                                                     {categories.map(category => (
                                                         <li
                                                             style={{
@@ -116,47 +107,46 @@ const Home = () => {
                                                     ))}
                                                 </ul>
                                             </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className="col-6 col-md-9">
-                                    <div className="row">
-                                        {products.map(product => (
-                                            <Product key={product._id} product={product} />
-                                        ))}
+                                    <div className="col-6 col-md-9">
+                                        <div className="row">
+                                            {products.map(product => (
+                                                <Product key={product._id} product={product} />
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            </>
-                        ) : (
-                            products.map(product => (
-                                <Product key={product._id} product={product} />
-                            ))
-                        )}
-                    </div>
-                </section>
+                                </>
+                            ) : (
+                                products.map(product => (
+                                    <Product key={product._id} product={product} />
+                                ))
+                            )}
+                        </div>
+                    </section>
 
-                {resPerPage <= count && (
-                    <div className="d-flex justify-content-center mt-5">
-                        <Pagination
-                            activePage={currentPage}
-                            itemsCountPerPage={resPerPage}
-                            totalItemsCount={count}
-                            onChange={setCurrentPageNo}
-                            nextPageText={'Next'}
-                            prevPageText={'Prev'}
-                            firstPageText={'First'}
-                            lastPageText={'Last'}
-                            itemClass="page-item"
-                            linkClass="page-link"
+                    {resPerPage <= count && (
+                        <div className="d-flex justify-content-center mt-5">
+                            <Pagination
+                                activePage={currentPage}
+                                itemsCountPerPage={resPerPage}
+                                totalItemsCount={count}
+                                onChange={setCurrentPageNo}
+                                nextPageText={'Next'}
+                                prevPageText={'Prev'}
+                                firstPageText={'First'}
+                                lastPageText={'Last'}
+                                itemClass="page-item"
+                                linkClass="page-link"
                             />
-                            </div>)}
-    
-                
-                </div>)}
-               
-            </>
-        )
-    }
+                        </div>
+                    )}
 
+                </div>
+            )}
+        </>
+    )
+}
 
 export default Home;

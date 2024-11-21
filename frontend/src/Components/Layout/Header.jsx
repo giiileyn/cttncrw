@@ -60,7 +60,7 @@ const Header = ({ cartItems }) => {
           className="settings-logo" 
           onClick={toggleDropdown}
         >
-          <img src="/images/settings-icon.png" alt="Settings" className="settings-icon" />
+          <img src="./images/settings-icon.png" alt="Settings" className="settings-icon" />
         </button>
         
         {isDropdownOpen && (
@@ -71,7 +71,10 @@ const Header = ({ cartItems }) => {
               <Link to="/profile" className="dropdown-item">Profile</Link>
                 
                 {user.role === 'admin' && (
+                  <>
                   <Link to="/orders" className="dropdown-item">Orders</Link>
+                  <Link to="/add-product" className="dropdown-item">Add Product</Link>
+                </>
                 )}
                 <button className="dropdown-item text-danger" onClick={logoutHandler}>Logout</button>
               </>

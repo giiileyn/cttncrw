@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Cart.css';
@@ -57,8 +58,10 @@ const Cart = () => {
       setShippingInfo({ ...shippingInfo, [name]: value });
     };
 
-    const handleCheckout = (e) => {
+    const handleCheckout = async (e) => {
       e.preventDefault();
+    
+      // Check if shipping details are filled
       if (
         !shippingInfo.address ||
         !shippingInfo.city ||
@@ -69,18 +72,62 @@ const Cart = () => {
         toast.error("Please fill in all shipping details.");
         return;
       }
-      // Proceed with the checkout process, like creating an order
-      toast.success("Proceeding to checkout with shipping details.");
-      // Reset the shipping form
-      setShippingInfo({
-        address: '',
-        city: '',
-        phoneNo: '',
-        postalCode: '',
-        country: '',
-      });
-      setShowShippingForm(false);
+    
+      // Prepare the order data to be sent
+      const orderData = {
+        orderItems: cartItems.map(item => ({
+          name: item.name,
+          quantity: item.quantity,
+          image: item.image,
+          price: item.price,
+          product: item.productId
+        })),
+        shippingInfo,
+        itemsPrice: getTotalPrice(),
+        totalPrice: getTotalPrice(),
+        paymentInfo: {}  // Add actual payment info if needed
+      };
+    
+      // Define headers with the token
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      };
+    
+      try {
+        // Make the API call to place the order
+        const response = await axios.post(`${import.meta.env.VITE_API}/order/new`, orderData, config);
+        
+        if (response.data.success) {
+          // On success, show success message and clear cart
+          toast.success('Order placed successfully.', {
+            position: 'bottom-right'
+          });
+    
+          // Clear the cart and reset the state
+          localStorage.removeItem('cartItems');
+          setCartItems([]);
+          setShowShippingForm(false);
+    
+          // Navigate to the success page
+          navigate('/success');
+        } else {
+          // If the response does not indicate success, show an error
+          toast.error('Failed to place the order. Please try again.', {
+            position: 'bottom-right'
+          });
+        }
+      } catch (error) {
+        // Handle any errors that occur during the API request
+        toast.error(error.response?.data?.message || 'Failed to place order.', {
+          position: 'bottom-right'
+        });
+        console.error(error);
+      }
     };
+    
   
 
   

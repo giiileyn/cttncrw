@@ -4,7 +4,7 @@ const APIFeatures = require('../utils/apiFeature');
 // Get All Products
 exports.getProducts = async (req, res) => {
     try {
-        const resPerPage = 4;
+        const resPerPage = 12;
         const productsCount = await Product.countDocuments();
         const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter();
         apiFeatures.pagination(resPerPage);
@@ -57,3 +57,17 @@ exports.getSingleProduct = async (req, res, next) => {
         });
     }
 };
+
+exports.getProdAdmin = async (req, res, next) => {
+	const products = await Product.find();
+	if (!products) {
+		return res.status(404).json({
+			success: false,
+			message: 'Product not found'
+		})
+	}
+	return res.status(200).json({
+		success: true,
+		products
+	})
+}
