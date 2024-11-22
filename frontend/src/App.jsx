@@ -19,6 +19,7 @@ import NewPass from './Components/Auth/NewPass';
 import Cart from './Components/Carts/Cart';
 // import Checkout from './Components/Carts/Checkout';
 // import Shipping from './Components/Carts/Shipping';
+// import OrderList from './Components/Order/OrderList';
 
 
 import axios from 'axios';
@@ -58,6 +59,7 @@ function App() {
         <Route path="/cart" element={<Cart  />} exact="true" />
         {/* <Route path="/checkout" element={<Checkout  />} exact="true" /> */}
         {/* <Route path="/shipping" element={<Shipping  />} /> */}
+        {/* <Route path="/orders/me" element={<OrderList />} /> */}
       </Routes>
 
       <Footer />

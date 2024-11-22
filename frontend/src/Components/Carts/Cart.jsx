@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,13 +9,17 @@ import './Cart.css';
 const Cart = () => {
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
     const [showShippingForm, setShowShippingForm] = useState(false);// State to show the checkout form
-    const [shippingInfo, setShippingInfo] = useState({
-      address: '',
-      city: '',
-      phoneNo: '',
-      postalCode: '',
-      country: ''
-    });
+    const [shippingInfo, setShippingInfo] = useState(
+      JSON.parse(localStorage.getItem('shippingInfo')) || {
+        address: '',
+        city: '',
+        phoneNo: '',
+        postalCode: '',
+        country: ''
+      }
+    );
+
+    const navigate = useNavigate();
 
     useEffect(() => {
       // Re-fetch cartItems from localStorage whenever the component mounts or when cartItems change
@@ -58,6 +62,12 @@ const Cart = () => {
       setShippingInfo({ ...shippingInfo, [name]: value });
     };
 
+    const saveShippingAddress = () => {
+      localStorage.setItem('shippingInfo', JSON.stringify(shippingInfo));
+      toast.success('Shipping address saved.', { position: 'bottom-right' });
+    };
+
+    
     const handleCheckout = async (e) => {
       e.preventDefault();
     
@@ -98,27 +108,19 @@ const Cart = () => {
     
       try {
         // Make the API call to place the order
-        const response = await axios.post(`${import.meta.env.VITE_API}/order/new`, orderData, config);
+        const response = await axios.post('http://localhost:3000/api/v1/order/new', orderData, config);
+
         
         if (response.data.success) {
-          // On success, show success message and clear cart
-          toast.success('Order placed successfully.', {
-            position: 'bottom-right'
-          });
-    
-          // Clear the cart and reset the state
-          localStorage.removeItem('cartItems');
-          setCartItems([]);
-          setShowShippingForm(false);
-    
-          // Navigate to the success page
-          navigate('/success');
+           toast.success('Order placed successfully.', { position: 'bottom-right' });
+                localStorage.removeItem('cartItems');
+                setCartItems([]);
+                setShowShippingForm(false);
+                navigate('/success');
         } else {
           // If the response does not indicate success, show an error
-          toast.error('Failed to place the order. Please try again.', {
-            position: 'bottom-right'
-          });
-        }
+          toast.error('Failed to place the order. Please try again.', { position: 'bottom-right' });
+            }
       } catch (error) {
         // Handle any errors that occur during the API request
         toast.error(error.response?.data?.message || 'Failed to place order.', {
@@ -217,7 +219,11 @@ const Cart = () => {
               onChange={handleShippingChange}
               required
             />
-            <button type="submit" className="submit-btn">
+             <button type="button" className="save-btn" onClick={saveShippingAddress}>
+              Save Address
+            </button>
+
+            <button type="submit" className="submit-btn" >
               Submit Shipping Info
             </button>
           </form>

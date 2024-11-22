@@ -58,16 +58,16 @@ exports.getSingleProduct = async (req, res, next) => {
     }
 };
 
-exports.getProdAdmin = async (req, res, next) => {
-	const products = await Product.find();
-	if (!products) {
-		return res.status(404).json({
-			success: false,
-			message: 'Product not found'
-		})
-	}
-	return res.status(200).json({
-		success: true,
-		products
-	})
-}
+// exports.getProdAdmin = async (req, res, next) => {
+// 	const products = await Product.find();
+// 	if (!products) {
+// 		return res.status(404).json({
+// 			success: false,
+// 			message: 'Product not found'
+// 		})
+// 	}
+// 	return res.status(200).json({
+// 		success: true,
+// 		products
+// 	})
+// }

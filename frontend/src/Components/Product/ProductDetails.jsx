@@ -34,9 +34,8 @@ const ProductDetails = () => {
     const productDetails = async (id) => {
         try {
             let res = await axios.get(`http://localhost:3000/api/v1/product/${id}`);
-            setProduct(res.data.product); // Update the state with the fetched product details
+            setProduct(res.data.product);
         } catch (err) {
-            console.log(err);
             setError('Product not found');
         }
     }
@@ -65,11 +64,11 @@ const ProductDetails = () => {
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
         // Check if the product already exists
-        const existingProductIndex = cartItems.findIndex(item => item.productId === product._id);
-        if (existingProductIndex >= 0) {
-            cartItems[existingProductIndex].quantity += quan; // Increment quantity
+        const productIndex = cartItems.findIndex(item => item.productId === product._id);
+        if (productIndex >= 0) {
+            cartItems[productIndex].quantity += quan;  // Increment quantity if the product already exists
         } else {
-            cartItems.push(cartItem); // Add new product
+            cartItems.push(cartItem);  // Add new product if not in cart
         }
 
         // Save back to localStorage
@@ -87,13 +86,7 @@ const ProductDetails = () => {
     }, [id, error]);
 
 
-        useEffect(() => {
-            productDetails(id)
-            if (error) {
-                navigate('/')
-                setError('')
-            }
-        }, [id, error]);
+       
     return (    
         <>
             <MetaData title={product.name} />

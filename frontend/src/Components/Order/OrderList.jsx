@@ -1,6 +1,6 @@
-import React, {Fragment, useEffect, useState} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
-import {MDBDataTable} from 'mdbreact'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { MDBDataTable } from 'mdbreact'
 
 import MetaData from '../Layout/MetaData'
 import Loader from '../Layout/Loader'
@@ -9,11 +9,11 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getToken } from '../../utils/helpers'
 
-
-const ListOrders = () => {
+const OrderList = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
     const [myOrdersList, setMyOrdersList] = useState([])
+
     const myOrders = async () => {
         try {
             const config = {
@@ -26,6 +26,7 @@ const ListOrders = () => {
             console.log(data)
             setMyOrdersList(data.orders)
             setLoading(false)
+
         } catch (error) {
             setError(error.response.data.message)
         }
@@ -38,6 +39,7 @@ const ListOrders = () => {
             });
         }
     }, [error])
+
     const setOrders = () => {
         const data = {
             columns: [
@@ -69,6 +71,7 @@ const ListOrders = () => {
             ],
             rows: []
         }
+
         myOrdersList.forEach(order => {
             data.rows.push({
                 id: order._id,
@@ -83,8 +86,10 @@ const ListOrders = () => {
                     </Link>
             })
         })
+
         return data;
     }
+
     return (
         <>
             <MetaData title={'My Orders'} />
@@ -101,4 +106,5 @@ const ListOrders = () => {
         </>
     )
 }
-export default ListOrders
+
+export default OrderList

@@ -1,78 +1,27 @@
-const mongoose = require('mongoose')
-const orderSchema = mongoose.Schema({
-    
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    },
+const mongoose = require('mongoose');
 
-    orderItems: [
-        {
-            name: {
-                type: String,
-                required: true
-            },
-            quantity: {
-                type: Number,
-                required: true
-            },
-            image: {
-                type: String,
-                required: true
-            },
-            price: {
-                type: Number,
-                required: true
-            },
-            product: {
-                type: mongoose.Schema.Types.ObjectId,
-                required: true,
-                ref: 'Product'
-            }
-        }
-    ],
-
+const orderSchema = new mongoose.Schema({
+    orderItems: [{
+      name: String,
+      quantity: Number,
+      image: String,
+      price: Number,
+      product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }
+    }],
     shippingInfo: {
-        address: {
-            type: String,
-            required: true
-        },
-        city: {
-            type: String,
-            required: true
-        },
-        phoneNo: {
-            type: String,
-            required: true
-        },
-        postalCode: {
-            type: String,
-            required: true
-        },
-        country: {
-            type: String,
-            required: true
-        }
+      address: String,
+      city: String,
+      phoneNo: String,
+      postalCode: String,
+      country: String
     },
-    
-    
-   
-    itemsPrice: {
-        type: Number,
-        required: true,
-        default: 0.0
-    },
-    totalPrice: {
-        type: Number,
-        required: true,
-        default: 0.0
-    },
-    orderStatus: {
-        type: String,
-        required: true,
-        default: 'Processing',
-        enum: ['Processing', 'Shipped', 'Delivered', 'Cancelled']  
-    }
-})
-module.exports = mongoose.model('Order', orderSchema)
+    itemsPrice: Number,
+    totalPrice: Number,
+    paidAt: Date,
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+  });
+  
+
+const Order = mongoose.model('Order', orderSchema);
+
+module.exports = Order;
