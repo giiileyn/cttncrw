@@ -87,13 +87,53 @@ exports.newOrder = async (req, res, next) => {
 
 exports.UserOrders = async (req, res) => {
     try {
-        // Assuming you have an Order model to fetch orders
-        const order = await Order.find({ user: req.user.id }); // Fetch orders for the logged-in user
-        res.json({  orders: order });
+        console.log("Authenticated user ID:", req.user.id); // Add this line to check
+        const orders = await Order.find({ user: req.user.id }) // Fetch orders for the logged-in user
+            .populate('orderItems.product', 'name price') // Populate the product name and price
+            .exec(); // Execute the query
+
+        res.json({ orders });
     } catch (err) {
         res.status(500).json({ message: 'Server error' });
     }
 };
+
+
+
+exports.adminOrder = async (req, res) => {
+    try {
+        // Check if the user has an admin role
+        if (!req.user || req.user.role !== 'admin') {
+            return res.status(403).json({ success: false, message: 'Unauthorized' });
+        }
+
+
+        // Fetch all orders and populate related user and product data
+        const orders = await Order.find()
+            .populate('user', 'name email') // Fetch user name and email
+            .populate('orderItems.product', 'name'); // Fetch product names in the order
+
+        // If no orders are found, respond appropriately
+        if (orders.length === 0) {
+            return res.status(404).json({ success: false, message: 'No orders found' });
+        }
+
+        // Respond with all orders
+        res.status(200).json({
+            success: true,
+            count: orders.length,
+            orders,
+        });
+    } catch (error) {
+        console.error('Error fetching orders:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Server error',
+            error: error.message,
+        });
+    }
+};
+
 
 // exports.UserOrders = async (req, res) => {
 //     try {

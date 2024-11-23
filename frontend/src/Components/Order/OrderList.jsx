@@ -73,7 +73,7 @@ const OrderList = () => {
                     order.orderItems.forEach((item) => {
                         data.rows.push({
                             id: order._id,
-                            name: item.name,
+                            name: item.product ? item.product.name : 'Unknown Product', 
                             quantity: item.quantity,
                             price: `$${item.price}`,
                             actions: (
