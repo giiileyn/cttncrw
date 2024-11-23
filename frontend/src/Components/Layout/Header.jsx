@@ -76,6 +76,8 @@ const Header = ({ cartItems }) => {
                   <Link to="/add-product" className="dropdown-item">Add Product</Link>
                 </>
                 )}
+                <Link to="/order/me" className="dropdown-item">My Orders</Link>
+                
                 <button className="dropdown-item text-danger" onClick={logoutHandler}>Logout</button>
               </>
             ) : (

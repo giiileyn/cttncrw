@@ -116,7 +116,7 @@ const Cart = () => {
                 localStorage.removeItem('cartItems');
                 setCartItems([]);
                 setShowShippingForm(false);
-                navigate('/success');
+                navigate('/order/me');
         } else {
           // If the response does not indicate success, show an error
           toast.error('Failed to place the order. Please try again.', { position: 'bottom-right' });

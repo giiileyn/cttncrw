@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const authMiddleware = (req, res, next) => {
+exports.isAuthenticatedUser = (req, res, next) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
         return res.status(401).json({ message: 'No token, authorization denied' });
@@ -15,4 +15,17 @@ const authMiddleware = (req, res, next) => {
     }
 };
 
-module.exports = authMiddleware;
+exports.authorizedRoles = (...roles) => {
+	
+    return (req, res, next) => {
+        // console.log(roles, req.user, req.body);
+        if (!roles.includes(req.user.role)) {
+            return res.status(403).json({message:`Role (${req.user.role}) is not allowed to acccess this resource`})
+            
+        }
+        next()
+    }
+}
+
+
+

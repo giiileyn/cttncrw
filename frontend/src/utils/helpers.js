@@ -6,15 +6,20 @@ export const authenticate = (data, next) => {
     }
     next();
 };
+// export const getToken = () => {
+//     if (window !== 'undefined') {
+//         if (localStorage.getItem('token')) {
+//             return localStorage.getItem('token');
+//         } else {
+//             return false;
+//         }
+//     }
+// };
+
 export const getToken = () => {
-    if (window !== 'undefined') {
-        if (sessionStorage.getItem('token')) {
-            return JSON.parse(sessionStorage.getItem('token'));
-        } else {
-            return false;
-        }
-    }
+    return localStorage.getItem('token'); // Ensure the key matches your storage key
 };
+
 // access user name from session storage
 export const getUser = () => {
     if (window !== 'undefined') {
