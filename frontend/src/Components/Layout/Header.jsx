@@ -20,6 +20,10 @@ const Header = ({ cartItems }) => {
     navigate('/login');
   };
 
+  const handlerEditProfile = () => {
+    navigate('/profile/edit'); // Navigate to the edit profile page
+  };
+
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
@@ -45,17 +49,24 @@ const Header = ({ cartItems }) => {
 
       <div className="nav-menu">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Women</a></li>
-          <li><a href="#">Men</a></li>
-          <li><a href="#">Kids</a></li>
-          <li><a href="#">Toddlers</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/women">Women</Link></li>
+          <li><Link to="/men">Men</Link></li>
+          <li><Link to="/kids">Kids</Link></li>
+          <li><Link to="/toddlers">Toddlers</Link></li>
         </ul>
       </div>
+
+     
 
       <Searchh />
 
       <div className="dropdown-container">
+        {user ? (
+          <span className="user-name">Hello, {user.name}</span>
+        ) : (
+          <Link to="/login" className="login-btn">Login</Link>
+        )}
         <button 
           className="settings-logo" 
           onClick={toggleDropdown}
@@ -67,22 +78,24 @@ const Header = ({ cartItems }) => {
           <div className="dropdown-menu">
             {user ? (
               <>
-             
-              <Link to="/profile" className="dropdown-item">Profile</Link>
-                
+                <button 
+                  className="dropdown-item" 
+                  onClick={handlerEditProfile}
+                >
+                  Profile
+                </button>
+
                 {user.role === 'admin' && (
                   <>
-                  <Link to="/orders" className="dropdown-item">Orders</Link>
-                  <Link to="/add-product" className="dropdown-item">Add Product</Link>
-                </>
+                    <Link to="/admin/order" className="dropdown-item">Orders</Link>
+                    <Link to="/products" className="dropdown-item">My Products</Link>
+                  </>
                 )}
                 <Link to="/order/me" className="dropdown-item">My Orders</Link>
-                
                 <button className="dropdown-item text-danger" onClick={logoutHandler}>Logout</button>
               </>
             ) : (
               <Link to="/login" className="login-btn">Login</Link>
-              // <button className="dropdown-item text-danger" onClick={logoutHandler}>login</button>
             )}
           </div>
         )}

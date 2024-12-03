@@ -1,0 +1,12 @@
+.filter-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.filter-icon:hover {
+    color: #0056b3;
+}

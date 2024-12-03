@@ -100,40 +100,92 @@ exports.UserOrders = async (req, res) => {
 
 
 
-exports.adminOrder = async (req, res) => {
+
+exports.adminOrders = async (req, res) => {
     try {
-        // Check if the user has an admin role
-        if (!req.user || req.user.role !== 'admin') {
-            return res.status(403).json({ success: false, message: 'Unauthorized' });
+        // Fetch all orders, populate user and order items
+        const orders = await Order.find({})
+            .populate('user', 'name email')  // Populate user details like name and email
+            .populate('orderItems.product', 'name price')  // Populate product name and price
+            .exec();
+
+        // Check if no orders are found
+        if (!orders || orders.length === 0) {
+            return res.status(404).json({ message: 'No orders found' });
         }
 
+        // Structure the data as needed
+        const orderData = orders.map(order => ({
+            user: order.user ? order.user.name || order.user.email : 'Unknown User',
+            orderId: order._id,
+            orderTime: order.createdAt,
+            items: order.orderItems.map(item => ({
+                product: item.product ? item.product.name : 'Unknown Product',
+                quantity: item.quantity,
+                price: item.price,
+                totalPrice: item.quantity * item.price,
+            })),
+            totalPrice: order.totalPrice,
+            shippingAddress: order.shippingInfo ? order.shippingInfo.address : 'No address provided',
+            status: order.status, // Include the status field
+        }));
 
-        // Fetch all orders and populate related user and product data
-        const orders = await Order.find()
-            .populate('user', 'name email') // Fetch user name and email
-            .populate('orderItems.product', 'name'); // Fetch product names in the order
+        // Send the structured response to the frontend
+        res.json({ orders: orderData });
+    } catch (err) {
+        // Log the error to the console for debugging
+        console.error('Error fetching orders:', err);
 
-        // If no orders are found, respond appropriately
-        if (orders.length === 0) {
-            return res.status(404).json({ success: false, message: 'No orders found' });
-        }
-
-        // Respond with all orders
-        res.status(200).json({
-            success: true,
-            count: orders.length,
-            orders,
-        });
-    } catch (error) {
-        console.error('Error fetching orders:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Server error',
-            error: error.message,
-        });
+        // Provide more details in the error response
+        res.status(500).json({ message: 'Server error', error: err.message, stack: err.stack });
     }
 };
 
+
+exports.updateOrderStatus = async (req, res, next) => {
+    try {
+        const { orderId, status } = req.body;
+
+        // Validate the status value
+        if (!['Delivered', 'Cancelled', 'Pending'].includes(status)) {
+            return res.status(400).json({ message: 'Invalid status value' });
+        }
+
+
+        const order = await Order.findById(orderId);
+        if (!order) {
+            return res.status(404).json({ message: 'Order not found' });
+        }
+        console.log('Order found:', order);
+
+
+        // Update the order status
+        order.status = status;
+        try {
+            await order.save();
+        } catch (saveError) {
+            return res.status(500).json({
+                success: false,
+                message: 'Error saving the updated order',
+                error: saveError.message,
+            });
+        }
+        
+
+        res.status(200).json({
+            success: true,
+            message: 'Order status updated successfully',
+            order
+        });
+    } catch (error) {
+        console.error('Error updating order status:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Error updating the order status',
+            error: error.message
+        });
+    }
+};
 
 // exports.UserOrders = async (req, res) => {
 //     try {

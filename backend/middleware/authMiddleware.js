@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const User = require('../models/user');
 
 exports.isAuthenticatedUser = (req, res, next) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
@@ -16,16 +17,18 @@ exports.isAuthenticatedUser = (req, res, next) => {
 };
 
 exports.authorizedRoles = (...roles) => {
-	
     return (req, res, next) => {
-        // console.log(roles, req.user, req.body);
-        if (!roles.includes(req.user.role)) {
-            return res.status(403).json({message:`Role (${req.user.role}) is not allowed to acccess this resource`})
-            
+        if (!req.user || !roles.includes(req.user.role)) {
+            return res.status(403).json({
+                success: false,
+                message: `Role (${req.user?.role}) is not authorized to access this resource`
+            });
         }
-        next()
-    }
-}
+        next();
+    };
+};
+
+
 
 
 

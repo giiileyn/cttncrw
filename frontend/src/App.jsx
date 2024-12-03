@@ -21,6 +21,18 @@ import Cart from './Components/Carts/Cart';
 // import Shipping from './Components/Carts/Shipping';
 // import OrderList from './Components/Order/OrderList';
 import OrderList from './Components/Order/OrderList';
+import ProductList from './Components/Admin/ProductList';
+import AdminProdDetails from './Components/Admin/AdminProdDetails.jsx';
+import AdminOrderList from './Components/Admin/AdminOrderList.jsx';
+// import SecretRoute from './Components/Auth/SecretRoute.js';
+import NewProduct from './Components/Admin/NewProduct.jsx';
+import EditProd from './Components/Admin/EditProd.jsx';
+import EditProfile from './Components/Auth/EditProfile.jsx';
+import Profile from './Components/Auth/Profile.jsx';
+import Women from './Components/Women.jsx';
+import Men from './Components/Men.jsx';
+import Kids from './Components/Kids.jsx';
+import Toddlers from './Components/Toddlers.jsx';
 
 
 import axios from 'axios';
@@ -42,7 +54,13 @@ function App() {
     localStorage.setItem('cartItems', JSON.stringify(newCartItems));
   };
 
-  
+  // const renderHomeOrProducts = () => {
+  //   if (userRole === 'admin') {
+  //     return <ProductList />;  // If user is admin, show ProductList
+  //   }
+  //   return <Home />;  // Otherwise, show Home
+  // };
+
 
   return (
     <Router>
@@ -51,6 +69,11 @@ function App() {
       {/* Define Routes here */}
       <Routes>
         <Route path="/" element={<Home />} exact="true" />
+        <Route path="/women" element={<Women />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/kids" element={<Kids />} />
+        <Route path="/toddlers" element={<Toddlers />} />
+        {/* <Route path="/" element={renderHomeOrProducts()} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<ProductDetails />} exact="true" />
@@ -61,6 +84,30 @@ function App() {
         {/* <Route path="/checkout" element={<Checkout  />} exact="true" /> */}
         {/* <Route path="/shipping" element={<Shipping  />} /> */}
         <Route path="/order/me" element={<OrderList />} />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/admin/products/:id" element={<AdminProdDetails />}  />
+        <Route path="/admin/order" element={<AdminOrderList />} />
+        <Route path="/admin/products/add" element={<NewProduct />} />
+        <Route path="/admin/product/edit/:productId" element={<EditProd />} />
+        <Route path="/profile/edit" element={<EditProfile />} />
+        <Route path="/profile" element={<Profile />} />
+
+        {/* <Route
+          path="/products"
+          element={
+            <SecretRoute allowedRoles={['admin']}>
+              <ProductList />
+            </SecretRoute>
+          }
+        />
+        <Route
+          path="/admin/orders"
+          element={
+            <SecretRoute allowedRoles={['admin']}>
+              <UserOrders />
+            </SecretRoute>
+          }
+        /> */}
       </Routes>
 
       <Footer />

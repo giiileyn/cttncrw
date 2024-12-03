@@ -17,6 +17,6 @@ app.use(cors());
 // app.use('/api/v1', userRoutes);
 app.use('/api/v1', products);
 app.use('/api/v1', authentication);
-app.use('/api/v1',order);
+app.use('/api/v1', order);
 
 module.exports = app;

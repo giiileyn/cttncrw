@@ -3,6 +3,7 @@ const User = require('../models/user');
 const crypto = require('crypto')
 const cloudinary = require('cloudinary').v2;
 const sendtoEmail = require('../utils/sendtoEmail')
+const jwt = require('jsonwebtoken');
 
 exports.registerUser = async (req, res, next) => {
     try {
@@ -115,6 +116,75 @@ exports.forgotPass = async (req, res, next) => {
         // return next(new ErrorHandler(error.message, 500))
     }
 }
+
+exports.getUserProfile = async (req, res) => {
+    try {
+      const user = await User.findById(req.user.id); // Assuming user ID is available in req.user from JWT
+      if (!user) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
+  
+      res.status(200).json({
+        success: true,
+        user: {
+          name: user.name,
+          email: user.email,
+          avatar: user.avatar, // Assuming avatar is an object with URL in your database
+        },
+      });
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+      res.status(500).json({ success: false, message: 'Server Error' });
+    }
+  };
+  
+
+exports.updateUser = async (req, res, next) => {
+    try {
+        const userId = req.user.id; // Assuming user ID is retrieved from a JWT or session
+        const { name, email, avatar } = req.body;
+
+        // Prepare updated data
+        const updatedData = {};
+        if (name) updatedData.name = name;
+        if (email) updatedData.email = email;
+
+        // If avatar is updated, upload to Cloudinary
+        if (req.file) {
+            const result = await cloudinary.uploader.upload(req.file.path, {
+                folder: 'avatars',
+                width: 150,
+                crop: "scale"
+            });
+
+            updatedData.avatar = {
+                public_id: result.public_id,
+                url: result.secure_url
+            };
+        }
+
+        // Find and update user
+        const user = await User.findByIdAndUpdate(userId, updatedData, {
+            new: true, // Return the updated document
+            runValidators: true
+        });
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: 'User updated successfully',
+            user
+        });
+    } catch (error) {
+        console.error("Error during user update:", error);
+        res.status(500).json({ success: false, message: 'Server Error', error: error.message });
+    }
+};
+
+
 
 
 exports.resetPassword = async (req, res, next) => {

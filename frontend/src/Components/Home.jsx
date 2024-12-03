@@ -6,17 +6,18 @@ import Product from './Product/Product'
 import Pagination from 'react-js-pagination'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import Loader from './Layout/Loader' //new
+import Loader from './Layout/Loader'
+import './Home.css';
 
 const Home = () => {
     const [products, setProducts] = useState([])
     const [productsCount, setProductsCount] = useState(0)
     const [filteredProductsCount, setFilteredProductsCount] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
-    const [resPerPage, setResPerPage] = useState(12) // Set default to 12 per page
+    const [resPerPage, setResPerPage] = useState(16) // Show 16 products per page
     const [price, setPrice] = useState([1, 1000]);
     const [category, setCategory] = useState('');
-    const [loading, setLoading] = useState(true) //new
+    const [loading, setLoading] = useState(true)
     let { keyword } = useParams();
 
     const createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -32,19 +33,21 @@ const Home = () => {
 
     const getProducts = async (keyword = '', page = 1, priceRange, category) => {
         try {
-            let link = `http://localhost:3000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}`
+            let link = `http://localhost:3000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}&limit=${resPerPage}`
 
             if (category) {
-                link = `http://localhost:3000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}&category=${category}`
+                link = `http://localhost:3000/api/v1/products?page=${page}&keyword=${keyword}&price[lte]=${priceRange[1]}&price[gte]=${priceRange[0]}&category=${category}&limit=${resPerPage}`
             }
 
             let res = await axios.get(link)
             setProducts(res.data.data)
             setProductsCount(res.data.count)
             setFilteredProductsCount(res.data.filteredProductsCount)
-            setLoading(false) //new
+            setLoading(false)
         } catch (error) {
             console.error("Error fetching products:", error);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -126,7 +129,7 @@ const Home = () => {
                         </div>
                     </section>
 
-                    {resPerPage <= count && (
+                    {resPerPage < count && (
                         <div className="d-flex justify-content-center mt-5">
                             <Pagination
                                 activePage={currentPage}

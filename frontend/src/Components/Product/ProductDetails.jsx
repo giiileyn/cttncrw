@@ -4,6 +4,7 @@ import MetaData from '../Layout/MetaData'
 import { Carousel } from 'react-bootstrap'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './ProductDetails.css'
 
 import axios from 'axios'
 const ProductDetails = () => {
@@ -116,15 +117,11 @@ const ProductDetails = () => {
 
                     <p id="product_price">₱{product.price}</p>
                     <div className="stockCounter d-inline">
-                        <span className='btn btn-danger minus' onClick={decreaseQuan}>-</span>
-                        {/* <span className="btn btn-danger minus" >-</span> */}
-
-                        {/* <input type="number" className="form-control count d-inline" readOnly /> */}
-                        <input type='number' className='form-control count d -inline' value={quan} readOnly/>
-
-                        {/* <span className="btn btn-primary plus" >+</span> */}
+                        <span className="btn btn-danger minus" onClick={decreaseQuan}>-</span>
+                        <input type="number" className="form-control count d-inline" value={quan} readOnly />
                         <span className="btn btn-primary plus" onClick={increaseQuan}>+</span>
                     </div>
+
 
                     <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" onClick={addItemCart} disabled={product.stock === 0}>Add to Cart</button>
 

@@ -19,7 +19,9 @@ const productSchema = new mongoose.Schema({
     },
     ratings: {
         type: Number,
-        default: 0
+        default: 0,
+        min: [0, 'Rating cannot be less than 0'],
+        max: [5, 'Rating cannot be more than 5'],
     },
     images: [
         {
@@ -37,12 +39,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please select the category for this product'],
         enum: {
-            values: [
-                'women',
-                'men',
-                'kids',
-                'toddler'
-            ],
+            values: ['women','men','kids','toddler'],
             message: 'Please select the correct category for this product'
         }
     },
@@ -64,10 +61,6 @@ const productSchema = new mongoose.Schema({
         {
             name: {
                 type: String,
-                required: true
-            },
-            rating: {
-                type: Number,
                 required: true
             },
             comment: {

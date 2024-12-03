@@ -16,6 +16,95 @@
         "numOfReviews": 209,
         "reviews": []
     },
+
+    {
+        "name": "Men Polo Green Plain",
+        "price": 589.00,
+        "description":"This Polo Green shirt is a versatile wardrobe staple, perfect for men who value style, quality, and comfort",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_24_vln8lh",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473131/prod_24_vln8lh.png"
+            }
+        ],
+        "category": "men",
+        "seller": "H&M",
+        "stock": 2000,
+        "numOfReviews": 210,
+        "reviews": []
+    },
+
+    {
+        "name": "Men Plain long Sleeve",
+        "price": 589.00,
+        "description":"A long plain sleeve shirt for men is a versatile and timeless wardrobe essential, perfect for both casual and formal occasions.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_23_eq6fne",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473130/prod_23_eq6fne.png"
+            }
+        ],
+        "category": "men",
+        "seller": "Bench",
+        "stock": 2000,
+        "numOfReviews": 250,
+        "reviews": []
+    },
+
+    {
+        "name": "Men Plain Cotton short Sleeve with bottons ",
+        "price": 569.00,
+        "description":"A long plain sleeve shirt for men is a versatile and timeless wardrobe essential, perfect for both casual and formal occasions.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_22_wdsbtt",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473129/prod_22_wdsbtt.png"
+            }
+        ],
+        "category": "men",
+        "seller": "Bench",
+        "stock": 2100,
+        "numOfReviews": 260,
+        "reviews": []
+    },
+    {
+        "name": "Men White Plain Cotton Long Sleeve  ",
+        "price": 500.00,
+        "description":"It combines simplicity with elegance, offering a clean and polished look suitable for a variety of settings.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_21_eip4wy",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473126/prod_21_eip4wy.png"
+            }
+        ],
+        "category": "men",
+        "seller": "Bench",
+        "stock": 2200,
+        "numOfReviews": 560,
+        "reviews": []
+    },
+
+    {
+        "name": "Men Black Plain  T-shirt  ",
+        "price": 499.00,
+        "description":"The Men's Black Plain T-Shirt is a classic and versatile wardrobe essential, suitable for a variety of occasions.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/prod_20_oeurlx",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473125/prod_20_oeurlx.png"
+            }
+        ],
+        "category": "men",
+        "seller": "Bench",
+        "stock": 2100,
+        "numOfReviews": 590,
+        "reviews": []
+    },
     {
         "name": "Women Stripped Polo Terno  ",
         "price": 489.00,
@@ -68,6 +157,7 @@
         "numOfReviews": 490,
         "reviews": []
     },
+
     {
         "name": "Women's Demin Sando ",
         "price": 670.00,
@@ -85,7 +175,6 @@
         "numOfReviews": 440,
         "reviews": []
     },
-
     {
         "name": "Women's Pink NYC Sando ",
         "price": 470.00,
@@ -339,101 +428,6 @@
     },
 
     {
-        "name": "Men Polo Green Plain",
-        "price": 589.00,
-        "description":"This Polo Green shirt is a versatile wardrobe staple, perfect for men who value style, quality, and comfort",
-        "ratings": 5,
-        "images": [
-            {
-                "public_id": "products/prod_24_vln8lh",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473131/prod_24_vln8lh.png"
-            }
-        ],
-        "category": "men",
-        "seller": "H&M",
-        "stock": 2000,
-        "numOfReviews": 210,
-        "reviews": []
-    },
-
-    {
-        "name": "Men Plain long Sleeve",
-        "price": 589.00,
-        "description":"A long plain sleeve shirt for men is a versatile and timeless wardrobe essential, perfect for both casual and formal occasions.",
-        "ratings": 5,
-        "images": [
-            {
-                "public_id": "products/prod_23_eq6fne",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473130/prod_23_eq6fne.png"
-            }
-        ],
-        "category": "men",
-        "seller": "Bench",
-        "stock": 2000,
-        "numOfReviews": 250,
-        "reviews": []
-    },
-
-    {
-        "name": "Men Plain Cotton short Sleeve with bottons ",
-        "price": 569.00,
-        "description":"A long plain sleeve shirt for men is a versatile and timeless wardrobe essential, perfect for both casual and formal occasions.",
-        "ratings": 5,
-        "images": [
-            {
-                "public_id": "products/prod_22_wdsbtt",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473129/prod_22_wdsbtt.png"
-            }
-        ],
-        "category": "men",
-        "seller": "Bench",
-        "stock": 2100,
-        "numOfReviews": 260,
-        "reviews": []
-    },
-    {
-        "name": "Men White Plain Cotton Long Sleeve  ",
-        "price": 500.00,
-        "description":"It combines simplicity with elegance, offering a clean and polished look suitable for a variety of settings.",
-        "ratings": 5,
-        "images": [
-            {
-                "public_id": "products/prod_21_eip4wy",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473126/prod_21_eip4wy.png"
-            }
-        ],
-        "category": "men",
-        "seller": "Bench",
-        "stock": 2200,
-        "numOfReviews": 560,
-        "reviews": []
-    },
-
-    {
-        "name": "Men Black Plain  T-shirt  ",
-        "price": 499.00,
-        "description":"The Men's Black Plain T-Shirt is a classic and versatile wardrobe essential, suitable for a variety of occasions.",
-        "ratings": 5,
-        "images": [
-            {
-                "public_id": "products/prod_20_oeurlx",
-                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1730473125/prod_20_oeurlx.png"
-            }
-        ],
-        "category": "men",
-        "seller": "Bench",
-        "stock": 2100,
-        "numOfReviews": 590,
-        "reviews": []
-    },
-    
-
-    
-
-    
-   
-
-    {
         "name": "Girls Tie Die T-Shirt  ",
         "price": 479.00,
         "description":"A fun, vibrant, and colorful top that adds a playful and energetic touch to any wardrobe.",
@@ -521,6 +515,262 @@
         "stock": 590,
         "numOfReviews": 953,
         "reviews": []
+    },
+
+    {
+        "name": "Toddler Pink Printed T-Shirt ",
+        "price": 599.00,
+        "description":"A delightful and versatile piece of clothing, perfect for everyday wear. It features a soft pink hue that exudes charm and is especially appealing to young kids.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/14_oai4wc",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420456/14_zrxdjx.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "genger snap",
+        "stock": 5170,
+        "numOfReviews": 973,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Plain Red T-shirt ",
+        "price": 569.00,
+        "description":"A simple yet vibrant wardrobe essential for young boys. Featuring a bold red color, it adds a pop of brightness to any outfit. Made from soft, breathable fabrics like cotton, it ensures comfort throughout the day, perfect for active toddler.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/13_hgv5h3",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420452/13_haobkk.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "genger snap",
+        "stock": 2370,
+        "numOfReviews": 683,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Printed Black T-shirt ",
+        "price": 469.00,
+        "description":"A  combines style and comfort, making it a standout choice for little ones. Featuring a sleek black base, it is adorned with playful and vibrant.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/12_hkxu0s",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420448/12_fldygc.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "genger snap",
+        "stock": 1370,
+        "numOfReviews": 383,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Printed Sando ",
+        "price": 438.00,
+        "description":"A  cool and comfortable clothing option perfect for warm days or active play. Designed with sleeveless armholes and a relaxed fit, it allows for maximum mobility and breathability.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/10_dp0fhn",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420425/10_iyd25b.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "genger snap",
+        "stock": 1230,
+        "numOfReviews": 581,
+        "reviews": []
+    },
+
+    
+    {
+        "name": "toddler Printed White T-shirt ",
+        "price": 478.00,
+        "description":"A versatile and stylish piece that blends comfort with playful design.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/11_rzmwtq",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420440/11_yetwxj.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "genger snap",
+        "stock": 1130,
+        "numOfReviews": 881,
+        "reviews": []
+    },
+
+ 
+    {
+        "name": "toddler Plain Orange 3/4 Sleeve ",
+        "price": 578.00,
+        "description":"Abright and versatile addition to any young girl’s wardrobe.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/8_fqlypx",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420395/8_q2svyq.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "zara",
+        "stock": 780,
+        "numOfReviews": 981,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Striped T-shirt ",
+        "price": 438.00,
+        "description":"A classic and stylish wardrobe staple, perfect for both casual and semi-formal occasions.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/9_vhtsdn",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420424/9_y07ywl.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "zara",
+        "stock": 1280,
+        "numOfReviews": 181,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Flowerry  3/4 Sleeve ",
+        "price": 588.00,
+        "description":"A charming and delightful addition to a little girl’s wardrobe.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/7_ttra8r",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420395/8_q2svyq.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "zara",
+        "stock": 880,
+        "numOfReviews": 881,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Plain Baby Blue Long Sleeve ",
+        "price": 678.00,
+        "description":"A simple yet elegant piece, perfect for versatile styling and everyday comfort.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/6_ksacp3",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420385/6_duvzab.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "zara",
+        "stock": 980,
+        "numOfReviews": 281,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Printed  Baby Blue T-shirt",
+        "price": 478.00,
+        "description":"A delightful and playful addition to any young girl’s wardrobe.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/5_ck5rqy",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420384/5_l92pwg.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "zara",
+        "stock": 480,
+        "numOfReviews": 481,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Pocchaco Printed T-shirt",
+        "price": 498.00,
+        "description":"A features an adorable design inspired by Pocchaco, the beloved Sanrio character.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/4_nrjyh4",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420349/4_qhwmsl.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "zara",
+        "stock": 490,
+        "numOfReviews": 881,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Mofusand Printed T-shirt",
+        "price": 475.00,
+        "description":"A fun and whimsical addition to any little girl's wardrobe. Featuring adorable prints of Mofusand, the cute and quirky character known for its playful and charming designs.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/3_uqkwb5",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420348/3_u9f8lj.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "genger snap",
+        "stock": 980,
+        "numOfReviews": 281,
+        "reviews": []
+    },
+
+
+    {
+        "name": "toddler Plain Yellow Square T-shirt",
+        "price": 575.00,
+        "description":"A bright and cheerful piece, perfect for adding a pop of color to any young girl’s wardrobe. The vibrant yellow hue exudes warmth and positivity, while the square design adds a modern and unique twist to the classic T-shirt style.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/2_gh0wwm",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420313/2_ihdmf8.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "genger snap",
+        "stock": 760,
+        "numOfReviews": 611,
+        "reviews": []
+    },
+
+    {
+        "name": "toddler Plain Dark Green Long Sleeve",
+        "price": 565.00,
+        "description":"Asimple yet stylish wardrobe essential for cooler weather. The rich dark green color offers a versatile and earthy tone that pairs well with a variety of outfits.",
+        "ratings": 5,
+        "images": [
+            {
+                "public_id": "products/1_jpj3an",
+                "url": "https://res.cloudinary.com/dpxktub8r/image/upload/v1732420312/1_-_Copy_ougyas.png"
+            }
+        ],
+        "category": "toddler",
+        "seller": "genger snap",
+        "stock": 660,
+        "numOfReviews": 711,
+        "reviews": []
     }
+
 
 ]

@@ -1,0 +1,97 @@
+/* NewProduct.css */
+
+/* Container to center the form */
+.new-product-container {
+    width: 50%;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  /* Heading */
+  .new-product-container h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form styling */
+  .new-product-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Label styling */
+  .new-product-container label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Input styling */
+  .new-product-container input,
+  .new-product-container select,
+  .new-product-container textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none;
+    width: 100%;
+  }
+  
+  /* Input hover effect */
+  .new-product-container input:hover,
+  .new-product-container select:hover,
+  .new-product-container textarea:hover {
+    border-color: #ffcc5c;
+  }
+  
+  /* Textarea styling */
+  .new-product-container textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  /* File input styling */
+  .new-product-container input[type="file"] {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Button styling */
+  .new-product-container button {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #f683af;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Button hover effect */
+  .new-product-container button:hover {
+    background-color: #f46da1;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .new-product-container {
+      width: 90%;
+    }
+  
+    .new-product-container h1 {
+      font-size: 20px;
+    }
+  }
+  

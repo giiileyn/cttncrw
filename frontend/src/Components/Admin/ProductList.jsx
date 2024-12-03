@@ -1,104 +1,151 @@
-import React, {Fragment, useEffect, useState} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
-import {MDBDataTable} from 'mdbreact'
+import React, { useState, useEffect } from "react";
+import MUIDataTable from "mui-datatables";
+import { Box, Button, Typography } from "@mui/material";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
-import MetaData from '../Layout/MetaData'
-import Loader from '../Layout/Loader'
-import axios from 'axios'
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { getToken } from '../../utils/helpers'
+const ProductList = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const navigate = useNavigate();
 
-
-const ListOrders = () => {
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState('')
-    const [myOrdersList, setMyOrdersList] = useState([])
-    const myOrders = async () => {
+    const fetchProducts = async () => {
+        let allProducts = [];
+        let page = 1;
+        let totalPages;
+        
         try {
-            const config = {
-                headers: {
-                    
-                    'Authorization': `Bearer ${getToken()}`
-                }
-            }
-            const { data } = await axios.get(`${import.meta.env.VITE_API}/orders/me`, config)
-            console.log(data)
-            setMyOrdersList(data.orders)
-            setLoading(false)
+            const { data } = await axios.get("http://localhost:3000/api/v1/adminProducts");
+            setProducts(data.data || []);
         } catch (error) {
-            setError(error.response.data.message)
+            const errorMessage =
+                error.response?.data?.message || error.message || "Failed to fetch products.";
+            toast.error(errorMessage, { position: "bottom-right" });
+        } finally {
+            setLoading(false);
         }
-    }
+    };
+
     useEffect(() => {
-        myOrders();
-        if (error) {
-            toast.error(error, {
-                position: 'bottom-right'
-            });
+        fetchProducts();
+    }, []);
+
+    const handleViewDetails = (product) => {
+        setSelectedProduct(product);
+        navigate(`/admin/products/${product._id}`);
+        toast.info(`Viewing details for: ${product.name}`);
+    };
+
+    const handleAddProduct = () => {
+        navigate("/admin/products/add"); // Redirect to the Add Product page
+    };
+
+    const handleDeleteProduct = async (productId) => {
+        if (window.confirm("Are you sure you want to delete this product?")) {
+            try {
+                await axios.delete(`http://localhost:3000/api/v1/product/${productId}`);
+                setProducts(products.filter((product) => product._id !== productId));
+                toast.success("Product deleted successfully");
+            } catch (error) {
+                const errorMessage =
+                    error.response?.data?.message || error.message || "Failed to delete product.";
+                toast.error(errorMessage);
+            }
         }
-    }, [error])
-    const setOrders = () => {
-        const data = {
-            columns: [
-                {
-                    label: 'Order ID',
-                    field: 'id',
-                    sort: 'asc'
+    };
+
+    const columns = [
+        { name: "name", label: "Product Name" },
+        { name: "category", label: "Category" },
+        { name: "price", label: "Price", options: { customBodyRender: (value) => `$${value}` } },
+        { name: "stock", label: "Stock" },
+        {
+            name: "view",
+            label: "View",
+            options: {
+                customBodyRender: (value, tableMeta, updateData) => {
+                    const product = products[tableMeta.rowIndex];
+                    return (
+                        <Button
+                            variant="outlined"
+                            color="primary"
+                            onClick={() => handleViewDetails(product)}
+                        >
+                            <FontAwesomeIcon icon={faEye} /> View
+                        </Button>
+                    );
                 },
-                {
-                    label: 'Num of Items',
-                    field: 'numOfItems',
-                    sort: 'asc'
+            },
+        },
+        {
+            name: "delete",
+            label: "Delete",
+            options: {
+                customBodyRender: (value, tableMeta, updateData) => {
+                    const product = products[tableMeta.rowIndex];
+                    return (
+                        <Button
+                            variant="outlined"
+                            color="secondary"
+                            onClick={() => handleDeleteProduct(product._id)}
+                        >
+                            <FontAwesomeIcon icon={faTrash} /> Delete
+                        </Button>
+                    );
                 },
-                {
-                    label: 'Amount',
-                    field: 'amount',
-                    sort: 'asc'
-                },
-                {
-                    label: 'Status',
-                    field: 'status',
-                    sort: 'asc'
-                },
-                {
-                    label: 'Actions',
-                    field: 'actions',
-                    sort: 'asc'
-                },
-            ],
-            rows: []
-        }
-        myOrdersList.forEach(order => {
-            data.rows.push({
-                id: order._id,
-                numOfItems: order.orderItems.length,
-                amount: `$${order.totalPrice}`,
-                status: order.orderStatus && String(order.orderStatus).includes('Delivered')
-                    ? <p style={{ color: 'green' }}>{order.orderStatus}</p>
-                    : <p style={{ color: 'red' }}>{order.orderStatus}</p>,
-                actions:
-                    <Link to={`/order/${order._id}`} className="btn btn-primary">
-                        <i className="fa fa-eye"></i>
-                    </Link>
-            })
-        })
-        return data;
-    }
+            },
+        },
+    ];
+
+    const options = {
+        selectableRows: "none",
+        responsive: "standard",
+        rowsPerPage: 10, // Set to display more rows per page
+        rowsPerPageOptions: [10, 25, 50, 100],
+        customToolbar: () => (
+            <Button
+                variant="contained"
+                color="success"
+                startIcon={<FontAwesomeIcon icon={faPlus} />}
+                onClick={handleAddProduct}
+                style={{ marginLeft: "20px" }} // Optional: Adjust spacing
+            >
+                Add Product
+            </Button>
+        ),
+    };
+
     return (
-        <>
-            <MetaData title={'My Orders'} />
-            <h1 className="my-5">My Orders</h1>
-            {loading ? <Loader /> : (
-                <MDBDataTable
-                    data={setOrders()}
-                    className="px-3"
-                    bordered
-                    striped
-                    hover
-                />
+        <div className="container">
+            <Typography variant="h4" className="my-4">
+                Product List
+            </Typography>
+
+            {loading ? (
+                <Typography>Loading...</Typography>
+            ) : products.length > 0 ? (
+                <MUIDataTable title="Products" data={products} columns={columns} options={options} />
+            ) : (
+                <Typography>No products available.</Typography>
             )}
-        </>
-    )
-}
-export default ListOrders
+
+            {/* Display selected product details if available */}
+            {selectedProduct && (
+                <Box className="product-details">
+                    <Typography variant="h6">Product Details:</Typography>
+                    <Typography>Name: {selectedProduct.name}</Typography>
+                    <Typography>Category: {selectedProduct.category}</Typography>
+                    <Typography>Price: ${selectedProduct.price}</Typography>
+                    <Typography>Stock: {selectedProduct.stock}</Typography>
+                </Box>
+            )}
+        </div>
+    );
+};
+
+export default ProductList;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './NewProduct.css';
 
 const NewProduct = () => {
   const [productData, setProductData] = useState({
@@ -34,7 +35,7 @@ const NewProduct = () => {
     }
 
     try {
-      const { data } = await axios.post('/api/admin/product/new', formData, {
+      const { data } = await axios.post('http://localhost:3000/api/v1/products/new', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

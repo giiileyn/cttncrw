@@ -1,34 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { registerUser } from '../../firebase/authUtils';  // Import registerUser correctly
+import { Formik, Field, Form, ErrorMessage } from 'formik'; 
+import * as Yup from 'yup'; // Yup validation library
 import axios from 'axios';
 import './Register.css';
 
 const Register = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [avatar, setAvatar] = useState(null);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Handle file input change
-  const handleAvatarChange = (e) => {
-    setAvatar(e.target.files[0]);
-  };
+  // Yup validation schema
+  const validationSchema = Yup.object({
+    name: Yup.string().required('Name is required'),
+    email: Yup.string().email('Invalid email address').required('Email is required'),
+    password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
+    avatar: Yup.mixed().required('Avatar is required')
+      .test("fileSize", "The file is too large", value => value && value.size <= 5 * 1024 * 1024) // 5MB limit
+      .test("fileFormat", "Unsupported Format", value => value && ["image/jpeg", "image/png", "image/gif"].includes(value.type)),
+  });
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
+  const handleRegister = async (values) => {
+    const { name, email, password, avatar } = values;
 
-    // Basic validation
-    if (!email || !password || !name || !avatar) {
-      alert('Please fill in all fields.');
-      return;
-    }
-    
-    setLoading(true);
-
-    // Prepare form data for submission
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
@@ -36,7 +28,6 @@ const Register = () => {
     formData.append('avatar', avatar);
 
     try {
-      // Adjust URL if your backend is running on a different port or subdirectory
       const response = await axios.post('http://localhost:3000/api/v1/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -52,62 +43,71 @@ const Register = () => {
     } catch (error) {
       console.error('Registration Error:', error);
       alert('Error registering user. Please try again.');
-    } finally {
-      setLoading(false);
     }
   };
 
   return (
     <div className="register-container">
       <h2>Create Account</h2>
-      <form onSubmit={handleRegister}>
-        <div className="form-group">
-          <label>Name</label>
-          <input
-            type="text"
-            className="form-control"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
+      <Formik
+        initialValues={{
+          name: '',
+          email: '',
+          password: '',
+          avatar: null,
+        }}
+        validationSchema={validationSchema}
+        onSubmit={handleRegister}
+      >
+        {({ setFieldValue, isSubmitting }) => (
+          <Form>
+            <div className="form-group">
+              <label>Name</label>
+              <Field
+                type="text"
+                name="name"
+                className="form-control"
+              />
+              <ErrorMessage name="name" component="div" className="error" />
+            </div>
 
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+            <div className="form-group">
+              <label>Email</label>
+              <Field
+                type="email"
+                name="email"
+                className="form-control"
+              />
+              <ErrorMessage name="email" component="div" className="error" />
+            </div>
 
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+            <div className="form-group">
+              <label>Password</label>
+              <Field
+                type="password"
+                name="password"
+                className="form-control"
+              />
+              <ErrorMessage name="password" component="div" className="error" />
+            </div>
 
-        <div className="form-group">
-          <label>Avatar</label>
-          <input
-            type="file"
-            className="form-control"
-            onChange={handleAvatarChange}
-            required
-          />
-        </div>
+            <div className="form-group">
+              <label>Avatar</label>
+              <input
+                type="file"
+                name="avatar"
+                className="form-control"
+                onChange={(event) => setFieldValue("avatar", event.target.files[0])}
+              />
+              <ErrorMessage name="avatar" component="div" className="error" />
+            </div>
 
-        <button type="submit" className="btn btn-primary" disabled={loading}>
-          {loading ? 'Registering...' : 'Register'}
-        </button>
-      </form>
+            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+              {isSubmitting ? 'Registering...' : 'Register'}
+            </button>
+          </Form>
+        )}
+      </Formik>
 
       <div className="login-link">
         <p>Already have an account? <Link to="/login">Login here</Link></p>

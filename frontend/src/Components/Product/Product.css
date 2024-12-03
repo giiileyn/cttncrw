@@ -1,0 +1,51 @@
+/* Product.css */
+.card {
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 300px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.ratings {
+    display: flex;
+    align-items: center;
+}
+
+.rating-outer {
+    width: 100%;
+    height: 5px;
+    background-color: #ddd;
+    position: relative;
+}
+
+.rating-inner {
+    height: 100%;
+    background-color: gold;
+    position: absolute;
+}
+
+.card-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#view_btn {
+    background-color: #f6acc8;
+    color: white;
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+}
+
+#view_btn:hover {
+    background-color: #f18fb5;
+}
